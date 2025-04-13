@@ -12,6 +12,7 @@
 #include <hid.h>
 
 void macropad_hid_init(void);
+void send_button_press(uint8_t key_id);
 void send_hid_report(uint8_t report_id, uint32_t btn);
 void hid_task(void);
 

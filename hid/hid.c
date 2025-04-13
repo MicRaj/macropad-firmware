@@ -24,6 +24,16 @@ void macropad_hid_init(void)
     }
 }
 
+void send_button_press(uint8_t key_id)
+{
+    if (!tud_hid_ready())
+        return;
+
+    uint8_t keycode[6] = {0};
+    keycode[0] = key_id;
+
+    tud_hid_keyboard_report(REPORT_ID_KEYBOARD, 0, keycode);
+}
 void send_hid_report(uint8_t report_id, uint32_t btn)
 {
     // skip if hid is not ready yet
@@ -64,7 +74,6 @@ void send_hid_report(uint8_t report_id, uint32_t btn)
 // tud_hid_report_complete_cb() is used to send the next report after previous one is complete
 void hid_task(void)
 {
-    tud_task();
     // Poll every 10ms
     const uint32_t interval_ms = 10;
     static uint32_t start_ms = 0;

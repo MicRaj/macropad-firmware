@@ -29,3 +29,14 @@ Firmware for the macropad.
 - Flash the Raspberry Pico.
   - **Bootselect Button** - Holding the bootsel button while connecting to a computer will cause the pico to mount as a USB mass storage device, the uf2 file can then be copied into this new drive to flash the device.
   - **Debug Probe** - (coming soons)
+
+# Debugging
+- Open a terminal and run:
+  ```
+  sudo openocd -f interface/cmsis-dap.cfg -f target/rp2040.cfg -c "adapter speed 5000"
+  ```
+- In another terminal run:
+  ```
+  arm-none-eabi-gdb build/my_program.elf
+  ````
+
