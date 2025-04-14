@@ -14,7 +14,6 @@ int main()
 
     while (1)
     {
-        sleep_ms(10);
         tud_task(); // tinyusb device task
         // hid_task();
         int key_idx = matrix_scan();
@@ -27,7 +26,8 @@ int main()
             {
                 if (!pressed)
                 {
-                    send_button_press(HID_KEY_B);
+                    send_key_down(HID_KEY_B);
+                    send_key_down(HID_KEY_C); // This one doesn't send.
                     pressed = true;
                 }
             }
@@ -36,7 +36,7 @@ int main()
                 if (pressed)
                 {
                     // Release the key when it's no longer pressed
-                    tud_hid_keyboard_report(REPORT_ID_KEYBOARD, 0, NULL);
+                    send_release_all();
                     pressed = false;
                 }
             }

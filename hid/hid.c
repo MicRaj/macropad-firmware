@@ -24,7 +24,7 @@ void macropad_hid_init(void)
     }
 }
 
-void send_button_press(uint8_t key_id)
+void send_key_down(uint8_t key_id)
 {
     if (!tud_hid_ready())
         return;
@@ -34,6 +34,15 @@ void send_button_press(uint8_t key_id)
 
     tud_hid_keyboard_report(REPORT_ID_KEYBOARD, 0, keycode);
 }
+
+void send_release_all(void)
+{
+    if (!tud_hid_ready())
+        return;
+
+    tud_hid_keyboard_report(REPORT_ID_KEYBOARD, 0, NULL);
+}
+
 void send_hid_report(uint8_t report_id, uint32_t btn)
 {
     // skip if hid is not ready yet
