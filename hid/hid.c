@@ -4,13 +4,57 @@
 
 #include "bsp/board_api.h"
 #include "tusb.h"
+#include "../uart/uart.h"
 
 #include "usb_descriptors.h"
 #include <hid.h>
+#include "hid.h"
 
 //--------------------------------------------------------------------+
 // USB HID
 //--------------------------------------------------------------------+
+
+hid_macro_report_t hid_queue[HID_QUEUE_SIZE];
+int head = 0;  // Where to insert next
+int tail = 0;  // Where to remove from
+int count = 0; // Number of items in queue
+
+bool is_queue_full()
+{
+    return count == HID_QUEUE_SIZE;
+}
+
+bool is_queue_empty()
+{
+    return count == 0;
+}
+
+bool enqueue_hid_report(hid_macro_report_t *report)
+{
+    if (is_queue_full())
+    {
+        uart_send_string("Failed enqueue\n\r");
+        return false;
+    }
+    hid_queue[head] = *report;
+    head = (head + 1) % HID_QUEUE_SIZE;
+    count++;
+    return true;
+}
+
+bool dequeue_hid_report(hid_macro_report_t *out_report)
+{
+    if (is_queue_empty())
+        return false;
+
+    uart_send_string("Dequeue\n\r");
+
+    *out_report = hid_queue[tail]; // Assuming we want to return the first keycode
+    tail = (tail + 1) % HID_QUEUE_SIZE;
+    count--;
+    return true;
+}
+
 void macropad_hid_init(void)
 {
     board_init();
@@ -28,11 +72,10 @@ void send_key_down(uint8_t key_id)
 {
     if (!tud_hid_ready())
         return;
+    hid_macro_report_t report = {0};
+    report.keycode[0] = key_id;
 
-    uint8_t keycode[6] = {0};
-    keycode[0] = key_id;
-
-    tud_hid_keyboard_report(REPORT_ID_KEYBOARD, 0, keycode);
+    enqueue_hid_report(&report);
 }
 
 void send_release_all(void)
@@ -40,7 +83,8 @@ void send_release_all(void)
     if (!tud_hid_ready())
         return;
 
-    tud_hid_keyboard_report(REPORT_ID_KEYBOARD, 0, NULL);
+    hid_macro_report_t report = {0};
+    enqueue_hid_report(&report);
 }
 
 void send_hid_report(uint8_t report_id, uint32_t btn)
@@ -83,27 +127,14 @@ void send_hid_report(uint8_t report_id, uint32_t btn)
 // tud_hid_report_complete_cb() is used to send the next report after previous one is complete
 void hid_task(void)
 {
-    // Poll every 10ms
-    const uint32_t interval_ms = 10;
-    static uint32_t start_ms = 0;
+    if (!tud_hid_ready())
+        return;
 
-    if (board_millis() - start_ms < interval_ms)
-        return; // not enough time
-    start_ms += interval_ms;
-
-    uint32_t const btn = board_button_read();
-
-    // Remote wakeup
-    if (tud_suspended() && btn)
+    hid_macro_report_t report;
+    if (dequeue_hid_report(&report))
     {
-        // Wake up host if we are in suspend mode
-        // and REMOTE_WAKEUP feature is enabled by host
-        tud_remote_wakeup();
-    }
-    else
-    {
-        // Send the 1st of report chain, the rest will be sent by tud_hid_report_complete_cb()
-        send_hid_report(REPORT_ID_KEYBOARD, btn);
+        // Send the first report the rest is handled by tud_hid_report_complete_cb
+        tud_hid_keyboard_report(REPORT_ID_KEYBOARD, report.modifier, report.keycode);
     }
 }
 
@@ -115,11 +146,11 @@ void tud_hid_report_complete_cb(uint8_t instance, uint8_t const *report, uint16_
     (void)instance;
     (void)len;
 
-    uint8_t next_report_id = report[0] + 1u;
-
-    if (next_report_id < REPORT_ID_COUNT)
+    hid_macro_report_t next_report;
+    if (dequeue_hid_report(&next_report))
     {
-        send_hid_report(next_report_id, board_button_read());
+        // Send the first report the rest is handled by tud_hid_report_complete_cb
+        tud_hid_keyboard_report(REPORT_ID_KEYBOARD, next_report.modifier, next_report.keycode);
     }
 }
 
