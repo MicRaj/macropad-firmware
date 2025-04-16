@@ -3,6 +3,18 @@
 int cols[NUM_COLS] = {COL_0, COL_1, COL_2};
 int rows[NUM_ROWS] = {ROW_0, ROW_1, ROW_2};
 
+void mount_led_flash(void)
+{
+    // Flash the mount LED
+    for (int i = 0; i < 3; i++)
+    {
+        board_led_write(true);
+        sleep_ms(100);
+        board_led_write(false);
+        sleep_ms(100);
+    }
+}
+
 void macropad_gpio_init(void)
 {
     // Initialise GPIO
@@ -29,13 +41,13 @@ int matrix_scan(void)
         }
 
         gpio_put(cols[col_idx], 1);
-        sleep_ms(10);
+        sleep_ms(5);
         for (int row_idx = 0; row_idx < NUM_ROWS; row_idx++)
         {
             if (gpio_get(rows[row_idx]))
             {
                 // Delay to debounce
-                sleep_ms(20);
+                sleep_ms(10);
                 if (!gpio_get(rows[row_idx]))
                 {
                     continue;

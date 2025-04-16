@@ -14,6 +14,7 @@
 #define NUM_COLS 3
 #define NUM_ROWS 3
 
+void mount_led_flash(void);
 void macropad_gpio_init(void);
 int matrix_scan(void);
 

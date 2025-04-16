@@ -11,12 +11,14 @@ int main()
     macropad_uart_init();
     macropad_gpio_init();
     macropad_hid_init();
+    mount_led_flash();
 
     while (1)
     {
         tud_task(); // tinyusb device task
-        // hid_task();
+        hid_task();
         int key_idx = matrix_scan();
+
         if (key_idx >= 0)
         {
             char message[50];
@@ -26,8 +28,10 @@ int main()
             {
                 if (!pressed)
                 {
+                    send_key_down(HID_KEY_A);
                     send_key_down(HID_KEY_B);
-                    send_key_down(HID_KEY_C); // This one doesn't send.
+                    send_key_down(HID_KEY_C);
+                    send_release_all();
                     pressed = true;
                 }
             }
@@ -35,8 +39,6 @@ int main()
             {
                 if (pressed)
                 {
-                    // Release the key when it's no longer pressed
-                    send_release_all();
                     pressed = false;
                 }
             }
