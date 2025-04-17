@@ -1,7 +1,12 @@
-#include "uart/uart.h"
-#include "gpio/gpio.h"
+#include "macro_uart/macro_uart.h"
+#include "macro_gpio/macro_gpio.h"
 #include "macro_hid/macro_hid.h"
-#include "tusb.h"
+#include <tusb.h>
+#include <hid.h>
+
+//--------------------------------------------------------------------+
+// Macropad Main Loop
+//--------------------------------------------------------------------+
 
 bool pressed = false;
 

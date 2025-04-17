@@ -6,9 +6,15 @@ project(macropad-firmware)
 # Initialize the Pico SDK
 pico_sdk_init()
 
+# Project wide include
+include_directories(
+    ${CMAKE_CURRENT_LIST_DIR}/pico-sdk/lib/tinyusb/src
+    ${CMAKE_CURRENT_LIST_DIR}/pico-sdk/lib/tinyusb/src/class/hid
+)
+
 add_executable(macropad-firmware
-        uart/uart.c
-        gpio/gpio.c
+        macro_uart/macro_uart.c
+        macro_gpio/macro_gpio.c
         macro_hid/usb_descriptors.c
         macro_hid/macro_hid.c
         main.c

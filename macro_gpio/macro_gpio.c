@@ -1,4 +1,8 @@
-#include "gpio.h"
+#include "macro_gpio.h"
+
+//--------------------------------------------------------------------+
+// Macropad GPIO - including matrix scan operation
+//--------------------------------------------------------------------+
 
 int cols[NUM_COLS] = {COL_0, COL_1, COL_2};
 int rows[NUM_ROWS] = {ROW_0, ROW_1, ROW_2};
