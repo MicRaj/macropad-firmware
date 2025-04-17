@@ -2,8 +2,8 @@
 #define UART_H
 
 #include <stdio.h>
-#include "pico/stdlib.h"
-#include "hardware/uart.h"
+#include <pico/stdlib.h>
+#include <hardware/uart.h>
 
 #define UART_ID uart0
 #define BAUD_RATE 115200

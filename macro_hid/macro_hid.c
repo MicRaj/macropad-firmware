@@ -1,14 +1,4 @@
-#include <stdlib.h>
-#include <stdio.h>
-#include <string.h>
-
-#include "bsp/board_api.h"
-#include "tusb.h"
-#include "../uart/uart.h"
-
-#include "usb_descriptors.h"
-#include <hid.h>
-#include "hid.h"
+#include "macro_hid.h"
 
 //--------------------------------------------------------------------+
 // USB HID

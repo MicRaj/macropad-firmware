@@ -1,5 +1,8 @@
+#include "macro_uart.h"
 
-#include "uart.h"
+//--------------------------------------------------------------------+
+// Macropad UART - Used for debugging
+//--------------------------------------------------------------------+
 
 void macropad_uart_init()
 {

@@ -2,8 +2,11 @@
 #define GPIO_H
 
 #include <stdio.h>
-#include "pico/stdlib.h"
-#include "hardware/gpio.h"
+
+#include <hid.h>
+#include <pico/stdlib.h>
+#include <hardware/gpio.h>
+#include <bsp/board_api.h>
 
 #define COL_0 7
 #define COL_1 8
