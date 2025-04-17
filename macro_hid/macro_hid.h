@@ -7,8 +7,10 @@
 
 #include <bsp/board_api.h>
 #include <tusb.h>
+#include <hid.h>
 
 #include "usb_descriptors.h"
+#include "tusb_config.h"
 
 #define HID_QUEUE_SIZE 1024
 
