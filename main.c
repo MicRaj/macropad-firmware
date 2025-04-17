@@ -1,6 +1,6 @@
 #include "uart/uart.h"
 #include "gpio/gpio.h"
-#include "hid/hid.h"
+#include "macro_hid/macro_hid.h"
 #include "tusb.h"
 
 bool pressed = false;

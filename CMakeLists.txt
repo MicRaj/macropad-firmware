@@ -9,14 +9,14 @@ pico_sdk_init()
 add_executable(macropad-firmware
         uart/uart.c
         gpio/gpio.c
-        hid/usb_descriptors.c
-        hid/hid.c
+        macro_hid/usb_descriptors.c
+        macro_hid/macro_hid.c
         main.c
         )
 
 # Make sure TinyUSB can find tusb_config.h
 target_include_directories(macropad-firmware PUBLIC
-        ${CMAKE_CURRENT_LIST_DIR}/hid)
+        ${CMAKE_CURRENT_LIST_DIR}/macro_hid)
 
 # In addition to pico_stdlib required for common PicoSDK functionality, add dependency on tinyusb_device
 # for TinyUSB device support and tinyusb_board for the additional board support library used by the example

@@ -9,7 +9,6 @@
 #include "tusb.h"
 
 #include "usb_descriptors.h"
-#include <hid.h>
 
 #define HID_QUEUE_SIZE 1024
 
