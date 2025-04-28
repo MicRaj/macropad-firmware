@@ -17,15 +17,20 @@ int main()
     macropad_uart_init();
     macropad_gpio_init();
     macropad_hid_init();
+    macropad_core_init();
     mount_led_flash();
 
     hid_macro_sequence_t key1_sequence = {
         .report_sequence = {
-            HID_REPORT(0x00, HID_KEY_A, 0, 0, 0, 0, 0), // A
-            HID_REPORT(0x00, HID_KEY_B, 0, 0, 0, 0, 0), // B
-            HID_REPORT(0x02, HID_KEY_C, 0, 0, 0, 0, 0), // Shift + C
+            HID_REPORT(KEYBOARD_MODIFIER_LEFTSHIFT, HID_KEY_H, 0, 0, 0, 0, 0), // Shift + H
+            HID_REPORT(0, HID_KEY_E, 0, 0, 0, 0, 0),                           // E
+            HID_REPORT(0, HID_KEY_L, 0, 0, 0, 0, 0),                           // L
+            HID_REPORT(0, 0, 0, 0, 0, 0, 0),                                   // Release between same key press
+            HID_REPORT(0, HID_KEY_L, 0, 0, 0, 0, 0),                           // L
+            HID_REPORT(0, HID_KEY_O, 0, 0, 0, 0, 0),                           // 0
+            HID_REPORT(0, 0, 0, 0, 0, 0, 0),                                   // Release at the end of the macro
         },
-        .length = 3};
+        .length = 7};
 
     write_macro_sequence(0, &key1_sequence);
 

@@ -1,8 +1,12 @@
 #include "macro_core.h"
 
+//--------------------------------------------------------------------+
+// Core macro functionality
+//--------------------------------------------------------------------+
+
 hid_macro_sequence_t macro_sequences[9];
 
-void init_macro_sequences()
+void macropad_core_init() // Not really needed for now - just placeholder
 {
     for (int i = 0; i < 9; i++)
     {
@@ -18,7 +22,7 @@ void play_macro_sequence(uint8_t macro_id)
     hid_macro_sequence_t *sequence = &macro_sequences[macro_id];
     for (uint8_t i = 0; i < sequence->length; i++)
     {
-        dequeue_hid_report(&sequence->report_sequence[i]);
+        enqueue_hid_report(&sequence->report_sequence[i]);
     }
 }
 
