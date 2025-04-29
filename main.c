@@ -36,7 +36,7 @@ int main()
             if (!switch_states[key_idx])
             {
                 switch_states[key_idx] = true;
-                // Send the key press to the host
+
                 switch (key_idx)
                 {
                 case 1:
@@ -69,10 +69,11 @@ int main()
                 default:
                     break;
                 }
+                send_release_all();
             }
 
             // Release all other keys if one is pressed
-            for (int i = 0; i < NUM_BUTTONS; i++)
+            for (int i = 0; i <= NUM_BUTTONS; i++)
             {
                 if (i + 1 != key_idx && switch_states[i])
                 {
