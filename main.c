@@ -1,6 +1,7 @@
 #include "macro_uart/macro_uart.h"
 #include "macro_gpio/macro_gpio.h"
 #include "macro_hid/macro_hid.h"
+#include "macro_core/macro_core.h"
 #include <tusb.h>
 #include <hid.h>
 
@@ -18,12 +19,14 @@ int main()
     macropad_uart_init();
     macropad_gpio_init();
     macropad_hid_init();
+    macropad_core_init();
     mount_led_flash();
 
     while (1)
     {
         tud_task(); // tinyusb device task
         hid_task();
+
         int key_idx = matrix_scan();
 
         if (key_idx >= 0)
@@ -36,46 +39,14 @@ int main()
             if (!switch_states[key_idx])
             {
                 switch_states[key_idx] = true;
-
-                switch (key_idx)
-                {
-                case 1:
-                    send_key_down(HID_KEY_A);
-                    break;
-                case 2:
-                    send_key_down(HID_KEY_B);
-                    break;
-                case 3:
-                    send_key_down(HID_KEY_C);
-                    break;
-                case 4:
-                    send_key_down(HID_KEY_D);
-                    break;
-                case 5:
-                    send_key_down(HID_KEY_E);
-                    break;
-                case 6:
-                    send_key_down(HID_KEY_F);
-                    break;
-                case 7:
-                    send_key_down(HID_KEY_G);
-                    break;
-                case 8:
-                    send_key_down(HID_KEY_H);
-                    break;
-                case 9:
-                    send_key_down(HID_KEY_I);
-                    break;
-                default:
-                    break;
-                }
+                play_macro_sequence(key_idx);
                 send_release_all();
             }
 
             // Release all other keys if one is pressed
-            for (int i = 0; i <= NUM_BUTTONS; i++)
+            for (int i = 0; i < NUM_BUTTONS; i++)
             {
-                if (i + 1 != key_idx && switch_states[i])
+                if (i != key_idx && switch_states[i] == true)
                 {
                     switch_states[i] = false;
                 }
