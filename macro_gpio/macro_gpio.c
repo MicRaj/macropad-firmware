@@ -51,15 +51,15 @@ int matrix_scan(void)
             if (gpio_get(rows[row_idx]))
             {
                 // Delay to debounce
-                sleep_ms(10);
+                sleep_ms(20);
                 if (!gpio_get(rows[row_idx]))
                 {
                     continue;
                 }
-                int key_idx = col_idx * NUM_ROWS + row_idx + 1;
+                int key_idx = col_idx * NUM_ROWS + row_idx;
                 return key_idx;
             }
         }
     }
-    return 0;
+    return -1;
 }

@@ -5,11 +5,13 @@
 #include <tusb.h>
 #include <hid.h>
 
+#define NUM_BUTTONS 9
+
 //--------------------------------------------------------------------+
 // Macropad Main Loop
 //--------------------------------------------------------------------+
 
-bool pressed = false;
+bool switch_states[NUM_BUTTONS] = {false};
 
 int main()
 {
@@ -19,20 +21,6 @@ int main()
     macropad_hid_init();
     macropad_core_init();
     mount_led_flash();
-
-    hid_macro_sequence_t key1_sequence = {
-        .report_sequence = {
-            HID_REPORT(KEYBOARD_MODIFIER_LEFTSHIFT, HID_KEY_H, 0, 0, 0, 0, 0), // Shift + H
-            HID_REPORT(0, HID_KEY_E, 0, 0, 0, 0, 0),                           // E
-            HID_REPORT(0, HID_KEY_L, 0, 0, 0, 0, 0),                           // L
-            HID_REPORT(0, 0, 0, 0, 0, 0, 0),                                   // Release between same key press
-            HID_REPORT(0, HID_KEY_L, 0, 0, 0, 0, 0),                           // L
-            HID_REPORT(0, HID_KEY_O, 0, 0, 0, 0, 0),                           // 0
-            HID_REPORT(0, 0, 0, 0, 0, 0, 0),                                   // Release at the end of the macro
-        },
-        .length = 7};
-
-    write_macro_sequence(0, &key1_sequence);
 
     while (1)
     {
@@ -46,22 +34,28 @@ int main()
             char message[50];
             snprintf(message, sizeof(message), "Key pressed: %d\n", key_idx);
             uart_send_string(message);
-            if (key_idx == 1)
+
+            // Check if the key is not already pressed
+            if (!switch_states[key_idx])
             {
-                if (!pressed)
+                switch_states[key_idx] = true;
+                play_macro_sequence(key_idx);
+                send_release_all();
+            }
+
+            // Release all other keys if one is pressed
+            for (int i = 0; i < NUM_BUTTONS; i++)
+            {
+                if (i != key_idx && switch_states[i] == true)
                 {
-                    play_macro_sequence(key_idx - 1);
-                    send_release_all();
-                    pressed = true;
+                    switch_states[i] = false;
                 }
             }
-            else
-            {
-                if (pressed)
-                {
-                    pressed = false;
-                }
-            }
+        }
+        else
+        {
+            // Set all to false if no key is pressed
+            memset(switch_states, 0, sizeof(switch_states));
         }
     }
     return 0;
