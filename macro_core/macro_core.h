@@ -1,6 +1,7 @@
 #ifndef CORE_H
 #define CORE_H
 #include "../macro_hid/macro_hid.h"
+#include "../macro_uart/macro_uart.h"
 #define HID_REPORT(mod, k0, k1, k2, k3, k4, k5) \
     {                                           \
         .modifier = (mod), .keycode = {(k0),    \
@@ -17,6 +18,11 @@ typedef struct
     hid_macro_report_t report_sequence[MAX_SEQUENCE_LENGTH];
     uint8_t length;
 } hid_macro_sequence_t;
+
+typedef struct
+{
+    hid_macro_sequence_t macro_sequences[9];
+} hid_macro_store;
 
 void macropad_core_init();
 

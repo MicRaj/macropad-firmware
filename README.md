@@ -37,6 +37,9 @@ Firmware for the macropad.
   ```
 - In another terminal run:
   ```
-  arm-none-eabi-gdb build/my_program.elf
-  ````
-
+  gdb-multiarch ./build/macropad-firmware.elf
+  ```
+- Connect GDB to OpenOCD
+  ```
+  target extended-remote :3333
+  ```
