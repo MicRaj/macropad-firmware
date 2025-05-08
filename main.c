@@ -2,6 +2,7 @@
 #include "macro_gpio/macro_gpio.h"
 #include "macro_hid/macro_hid.h"
 #include "macro_core/macro_core.h"
+#include "macro_core/macro_flash.h"
 #include <tusb.h>
 #include <hid.h>
 
@@ -32,7 +33,7 @@ int main()
         if (key_idx >= 0)
         {
             char message[50];
-            snprintf(message, sizeof(message), "Key pressed: %d\n", key_idx);
+            snprintf(message, sizeof(message), "Key pressed: %d\r\n", key_idx);
             uart_send_string(message);
 
             // Check if the key is not already pressed
