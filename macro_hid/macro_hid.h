@@ -15,7 +15,7 @@
 #define HID_QUEUE_SIZE 1024
 
 // HID Report Struct (Report ID and reserved removed)
-typedef struct
+typedef struct __attribute__((packed)) // Make sure it is always 7 bytes
 {
     uint8_t modifier;
     uint8_t keycode[6];

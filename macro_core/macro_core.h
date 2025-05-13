@@ -17,7 +17,7 @@ typedef struct
 {
     hid_macro_report_t report_sequence[MAX_SEQUENCE_LENGTH];
     uint8_t length;
-} hid_macro_sequence_t;
+} hid_macro_sequence_t; // TODO Change these to macro_sequence_t
 
 typedef struct
 {

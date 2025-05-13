@@ -1,4 +1,5 @@
 #include "macro_hid.h"
+#include "../macro_uart/macro_uart.h"
 
 //--------------------------------------------------------------------+
 // USB HID
@@ -105,7 +106,7 @@ void tud_hid_report_complete_cb(uint8_t instance, uint8_t const *report, uint16_
 
 uint16_t tud_hid_get_report_cb(uint8_t instance, uint8_t report_id, hid_report_type_t report_type, uint8_t *buffer, uint16_t reqlen)
 {
-    // TODO not Implemented
+    // TODO not Implemented. Host sends request - used to get current macro settings.
     (void)instance;
     (void)report_id;
     (void)report_type;
@@ -119,6 +120,19 @@ uint16_t tud_hid_get_report_cb(uint8_t instance, uint8_t report_id, hid_report_t
 void tud_hid_set_report_cb(uint8_t instance, uint8_t report_id, hid_report_type_t report_type, uint8_t const *buffer, uint16_t bufsize)
 {
     (void)instance;
+    char message[64];
+    snprintf(message, sizeof(message), "Report ID: %d, Length: %d\r\n", report_id, bufsize);
+    uart_send_string(message);
+    report_id = buffer[0]; // TODO Bug tud_hid_set_report not reading first byte as report_id
+
+    // Print the buffer in hex
+    for (uint16_t i = 0; i < bufsize; i++)
+    {
+        snprintf(message, sizeof(message), "0x%02X ", buffer[i]);
+        uart_send_string(message);
+    }
+
+    uart_send_string("\r\n");
 
     if (report_type == HID_REPORT_TYPE_OUTPUT)
     {
@@ -141,6 +155,19 @@ void tud_hid_set_report_cb(uint8_t instance, uint8_t report_id, hid_report_type_
                 // Caplocks Off: back to normal blink
                 board_led_write(false);
             }
+        }
+        else if (report_id == REPORT_ID_CUSTOM)
+        {
+            // // bufsize should be (at least) 1
+            // if (bufsize < 64)
+            //     return;
+
+            uart_send_string("Custom Report Received");
+
+            // uint8_t macro_id = buffer[1];
+            // uint8_t action = buffer[2] // 0 for clear, 1 for add
+            // uint8_t macro_report_count // Amount of reports added
+            // uint8_t *data = buffer + 4 // 60Bytes Remaining.for data
         }
     }
 }
