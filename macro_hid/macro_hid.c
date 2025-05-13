@@ -1,5 +1,6 @@
 #include "macro_hid.h"
 #include "../macro_uart/macro_uart.h"
+#include "macro_custom_report.h"
 
 //--------------------------------------------------------------------+
 // USB HID
@@ -121,7 +122,7 @@ void tud_hid_set_report_cb(uint8_t instance, uint8_t report_id, hid_report_type_
 {
     (void)instance;
     char message[64];
-    snprintf(message, sizeof(message), "Report ID: %d, Length: %d\r\n", report_id, bufsize);
+    snprintf(message, sizeof(message), "Report ID: %d, Length: %d, Report Type: %d\r\n", report_id, bufsize, report_type);
     uart_send_string(message);
     report_id = buffer[0]; // TODO Bug tud_hid_set_report not reading first byte as report_id
 
@@ -143,7 +144,7 @@ void tud_hid_set_report_cb(uint8_t instance, uint8_t report_id, hid_report_type_
             if (bufsize < 1)
                 return;
 
-            uint8_t const kbd_leds = buffer[0];
+            uint8_t const kbd_leds = buffer[1];
 
             if (kbd_leds & KEYBOARD_LED_CAPSLOCK)
             {
@@ -158,16 +159,12 @@ void tud_hid_set_report_cb(uint8_t instance, uint8_t report_id, hid_report_type_
         }
         else if (report_id == REPORT_ID_CUSTOM)
         {
-            // // bufsize should be (at least) 1
-            // if (bufsize < 64)
-            //     return;
+            uint8_t const *host_command = buffer + 1; // +1 for report_id
+            if (bufsize < 9)
+                return;
 
             uart_send_string("Custom Report Received");
-
-            // uint8_t macro_id = buffer[1];
-            // uint8_t action = buffer[2] // 0 for clear, 1 for add
-            // uint8_t macro_report_count // Amount of reports added
-            // uint8_t *data = buffer + 4 // 60Bytes Remaining.for data
+            excecute_host_command((hid_host_cmd_t *)host_command);
         }
     }
 }
