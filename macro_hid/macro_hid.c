@@ -55,6 +55,13 @@ void macropad_hid_init(void)
     {
         board_init_after_tusb();
     }
+
+    // Frequent tud_task calls for device enumeration
+    for (int i = 0; i < 30; i++)
+    {
+        tud_task();
+        sleep_ms(10);
+    }
 }
 
 void send_key_down(uint8_t key_id)
