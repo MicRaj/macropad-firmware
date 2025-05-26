@@ -25,13 +25,13 @@
 #ifndef USB_DESCRIPTORS_H_
 #define USB_DESCRIPTORS_H_
 
+#include <hid_device.h>
+#include "tusb_config.h"
+#define CUSTOM_REPORT_SIZE 64 // TODO 63 or 64
 enum
 {
   REPORT_ID_KEYBOARD = 1,
-  REPORT_ID_MOUSE,
-  REPORT_ID_CONSUMER_CONTROL,
-  REPORT_ID_GAMEPAD,
-  REPORT_ID_COUNT
+  REPORT_ID_CUSTOM,
 };
 
 #endif /* USB_DESCRIPTORS_H_ */

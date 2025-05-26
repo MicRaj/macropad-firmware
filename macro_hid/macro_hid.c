@@ -1,4 +1,6 @@
 #include "macro_hid.h"
+#include "../macro_uart/macro_uart.h"
+#include "macro_custom_report.h"
 
 //--------------------------------------------------------------------+
 // USB HID
@@ -53,6 +55,13 @@ void macropad_hid_init(void)
     {
         board_init_after_tusb();
     }
+
+    // Frequent tud_task calls for device enumeration
+    for (int i = 0; i < 30; i++)
+    {
+        tud_task();
+        sleep_ms(10);
+    }
 }
 
 void send_key_down(uint8_t key_id)
@@ -105,7 +114,7 @@ void tud_hid_report_complete_cb(uint8_t instance, uint8_t const *report, uint16_
 
 uint16_t tud_hid_get_report_cb(uint8_t instance, uint8_t report_id, hid_report_type_t report_type, uint8_t *buffer, uint16_t reqlen)
 {
-    // TODO not Implemented
+    // TODO not Implemented. Host sends request - used to get current macro settings.
     (void)instance;
     (void)report_id;
     (void)report_type;
@@ -119,6 +128,19 @@ uint16_t tud_hid_get_report_cb(uint8_t instance, uint8_t report_id, hid_report_t
 void tud_hid_set_report_cb(uint8_t instance, uint8_t report_id, hid_report_type_t report_type, uint8_t const *buffer, uint16_t bufsize)
 {
     (void)instance;
+    char message[64];
+    snprintf(message, sizeof(message), "Report ID: %d, Length: %d, Report Type: %d\r\n", report_id, bufsize, report_type);
+    uart_send_string(message);
+    report_id = buffer[0]; // TODO Bug tud_hid_set_report not reading first byte as report_id
+
+    // Print the buffer in hex
+    for (uint16_t i = 0; i < bufsize; i++)
+    {
+        snprintf(message, sizeof(message), "0x%02X ", buffer[i]);
+        uart_send_string(message);
+    }
+
+    uart_send_string("\r\n");
 
     if (report_type == HID_REPORT_TYPE_OUTPUT)
     {
@@ -129,7 +151,7 @@ void tud_hid_set_report_cb(uint8_t instance, uint8_t report_id, hid_report_type_
             if (bufsize < 1)
                 return;
 
-            uint8_t const kbd_leds = buffer[0];
+            uint8_t const kbd_leds = buffer[1];
 
             if (kbd_leds & KEYBOARD_LED_CAPSLOCK)
             {
@@ -141,6 +163,15 @@ void tud_hid_set_report_cb(uint8_t instance, uint8_t report_id, hid_report_type_
                 // Caplocks Off: back to normal blink
                 board_led_write(false);
             }
+        }
+        else if (report_id == REPORT_ID_CUSTOM)
+        {
+            uint8_t const *host_command = buffer + 1; // +1 for report_id
+            if (bufsize < 9)
+                return;
+
+            uart_send_string("Custom Report Received");
+            excecute_host_command((hid_host_cmd_t *)host_command);
         }
     }
 }
