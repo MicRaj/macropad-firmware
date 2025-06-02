@@ -129,9 +129,9 @@ void tud_hid_set_report_cb(uint8_t instance, uint8_t report_id, hid_report_type_
 {
     (void)instance;
     char message[64];
+    // report_id = buffer[0]; // TODO Bug tud_hid_set_report not reading first byte as report_id
     snprintf(message, sizeof(message), "Report ID: %d, Length: %d, Report Type: %d\r\n", report_id, bufsize, report_type);
     uart_send_string(message);
-    report_id = buffer[0]; // TODO Bug tud_hid_set_report not reading first byte as report_id
 
     // Print the buffer in hex
     for (uint16_t i = 0; i < bufsize; i++)
@@ -151,7 +151,7 @@ void tud_hid_set_report_cb(uint8_t instance, uint8_t report_id, hid_report_type_
             if (bufsize < 1)
                 return;
 
-            uint8_t const kbd_leds = buffer[1];
+            uint8_t const kbd_leds = buffer[0];
 
             if (kbd_leds & KEYBOARD_LED_CAPSLOCK)
             {
@@ -166,11 +166,13 @@ void tud_hid_set_report_cb(uint8_t instance, uint8_t report_id, hid_report_type_
         }
         else if (report_id == REPORT_ID_CUSTOM)
         {
-            uint8_t const *host_command = buffer + 1; // +1 for report_id
-            if (bufsize < 9)
-                return;
-
             uart_send_string("Custom Report Received");
+            uint8_t const *host_command = buffer;
+            if (bufsize < 8)
+            {
+                uart_send_string("Incorrect size");
+                return;
+            }
             excecute_host_command((hid_host_cmd_t *)host_command);
         }
     }
