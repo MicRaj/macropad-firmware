@@ -1,6 +1,7 @@
 #include "macro_hid.h"
 #include "../macro_uart/macro_uart.h"
 #include "macro_custom_report.h"
+#include "usb_descriptors.h"
 
 //--------------------------------------------------------------------+
 // USB HID
@@ -124,16 +125,14 @@ uint16_t tud_hid_get_report_cb(uint8_t instance, uint8_t report_id, hid_report_t
     return 0;
 }
 
-// Initial functionality, callback needs to be defined.
 void tud_hid_set_report_cb(uint8_t instance, uint8_t report_id, hid_report_type_t report_type, uint8_t const *buffer, uint16_t bufsize)
 {
-    (void)instance;
-    char message[64];
-    // report_id = buffer[0]; // TODO Bug tud_hid_set_report not reading first byte as report_id
-    snprintf(message, sizeof(message), "Report ID: %d, Length: %d, Report Type: %d\r\n", report_id, bufsize, report_type);
+    char message[128];
+    snprintf(message, sizeof(message),
+             "Interface (instance): %u, Report ID: %u, Length: %u, Report Type: %u\r\n",
+             instance, report_id, bufsize, report_type);
     uart_send_string(message);
 
-    // Print the buffer in hex
     for (uint16_t i = 0; i < bufsize; i++)
     {
         snprintf(message, sizeof(message), "0x%02X ", buffer[i]);
@@ -141,39 +140,38 @@ void tud_hid_set_report_cb(uint8_t instance, uint8_t report_id, hid_report_type_
     }
 
     uart_send_string("\r\n");
-
-    if (report_type == HID_REPORT_TYPE_OUTPUT)
+    if (instance == ITF_NUM_HID)
     {
-        // Set keyboard LED e.g Capslock, Numlock etc...
-        if (report_id == REPORT_ID_KEYBOARD)
+        if (report_type == HID_REPORT_TYPE_OUTPUT)
         {
-            // bufsize should be (at least) 1
-            if (bufsize < 1)
-                return;
-
-            uint8_t const kbd_leds = buffer[0];
-
-            if (kbd_leds & KEYBOARD_LED_CAPSLOCK)
+            // Capslock, Numlock etc...
+            if (report_id == REPORT_ID_KEYBOARD)
             {
-                // Capslock On: disable blink, turn led on
-                board_led_write(true);
-            }
-            else
-            {
-                // Caplocks Off: back to normal blink
-                board_led_write(false);
+                if (bufsize < 1)
+                    return;
+
+                uint8_t const kbd_leds = buffer[0];
+
+                if (kbd_leds & KEYBOARD_LED_CAPSLOCK)
+                {
+                    board_led_write(true);
+                }
+                else
+                {
+                    board_led_write(false);
+                }
             }
         }
-        else // windows bug
+    }
+    else if (instance == ITF_NUM_PROGRAMMING)
+    {
+        uart_send_string("Custom Report Received\r\n");
+        uint8_t const *host_command = buffer + 1;
+        if (bufsize < 8)
         {
-            uart_send_string("Custom Report Received");
-            uint8_t const *host_command = buffer + 1;
-            if (bufsize < 8)
-            {
-                uart_send_string("Incorrect size");
-                return;
-            }
-            excecute_host_command((hid_host_cmd_t *)host_command);
+            uart_send_string("Incorrect size\r\n");
+            return;
         }
+        excecute_host_command((hid_host_cmd_t *)host_command);
     }
 }
