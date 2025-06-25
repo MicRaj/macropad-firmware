@@ -164,10 +164,10 @@ void tud_hid_set_report_cb(uint8_t instance, uint8_t report_id, hid_report_type_
                 board_led_write(false);
             }
         }
-        else if (report_id == REPORT_ID_CUSTOM)
+        else // windows bug
         {
             uart_send_string("Custom Report Received");
-            uint8_t const *host_command = buffer;
+            uint8_t const *host_command = buffer + 1;
             if (bufsize < 8)
             {
                 uart_send_string("Incorrect size");
