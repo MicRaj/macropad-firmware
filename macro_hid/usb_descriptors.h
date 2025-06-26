@@ -34,4 +34,11 @@ enum
   REPORT_ID_CUSTOM,
 };
 
+enum
+{
+  ITF_NUM_HID,
+  ITF_NUM_PROGRAMMING,
+  ITF_NUM_TOTAL
+};
+
 #endif /* USB_DESCRIPTORS_H_ */

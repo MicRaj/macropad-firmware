@@ -27,5 +27,11 @@ void excecute_host_command(hid_host_cmd_t *host_command)
         write_macro_sequence(macro_id, &macro_sequence_buffer);
         uart_send_string("Commit\r\n");
     }
+    else if (host_command->command == CMD_FLASH)
+    {
+        write_current_macro_store_to_flash();
+        uart_send_string("Flash\r\n");
+    }
+
     return;
 }

@@ -1,10 +1,9 @@
 #include "macro_core.h"
-#include "macro_flash.h"
 //--------------------------------------------------------------------+
 // Core macro functionality
 //--------------------------------------------------------------------+
 
-hid_macro_store macro_store;
+hid_macro_store_t macro_store;
 
 void macropad_core_init()
 {
@@ -101,7 +100,6 @@ void macropad_core_init()
     // {
     //     uart_send_string("Flash Error\r\n");
     // }
-    read_store_from_flash(&macro_store);
 }
 void play_macro_sequence(uint8_t macro_id)
 {
