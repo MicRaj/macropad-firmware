@@ -75,12 +75,12 @@ uint8_t const *tud_descriptor_device_cb(void)
 // HID Report Descriptor
 //--------------------------------------------------------------------+
 
-uint8_t const desc_hid_report1[] =
+uint8_t const desc_hid_report_keyboard[] =
     {
         TUD_HID_REPORT_DESC_KEYBOARD(HID_REPORT_ID(REPORT_ID_KEYBOARD)),
 };
 
-uint8_t const desc_hid_report2[] =
+uint8_t const desc_hid_report_programming[] =
     {
         TUD_HID_REPORT_DESC_GENERIC_INOUT(CFG_TUD_HID_EP_BUFSIZE, HID_REPORT_ID(REPORT_ID_CUSTOM)),
 };
@@ -92,11 +92,11 @@ uint8_t const *tud_hid_descriptor_report_cb(uint8_t itf)
 {
   if (itf == 0)
   {
-    return desc_hid_report1;
+    return desc_hid_report_keyboard;
   }
   else if (itf == 1)
   {
-    return desc_hid_report2;
+    return desc_hid_report_programming;
   }
 
   return NULL;
@@ -118,8 +118,8 @@ uint8_t const desc_configuration[] =
         TUD_CONFIG_DESCRIPTOR(1, ITF_NUM_TOTAL, 0, CONFIG_TOTAL_LEN, TUSB_DESC_CONFIG_ATT_REMOTE_WAKEUP, 100),
 
         // Interface number, string index, protocol, report descriptor len, EP In address, EP Out address, size & polling interval
-        TUD_HID_DESCRIPTOR(ITF_NUM_HID, 0, HID_ITF_PROTOCOL_KEYBOARD, sizeof(desc_hid_report1), EPNUM_KEYBOARD, CFG_TUD_HID_EP_BUFSIZE, 5),
-        TUD_HID_INOUT_DESCRIPTOR(ITF_NUM_PROGRAMMING, 0, HID_ITF_PROTOCOL_NONE, sizeof(desc_hid_report2), EPNUM_PROGRAMMING_IN, EPNUM_PROGRAMMING_OUT, CFG_TUD_HID_EP_BUFSIZE, 10)};
+        TUD_HID_DESCRIPTOR(ITF_NUM_HID, 0, HID_ITF_PROTOCOL_KEYBOARD, sizeof(desc_hid_report_keyboard), EPNUM_KEYBOARD, CFG_TUD_HID_EP_BUFSIZE, 5),
+        TUD_HID_INOUT_DESCRIPTOR(ITF_NUM_PROGRAMMING, 0, HID_ITF_PROTOCOL_NONE, sizeof(desc_hid_report_programming), EPNUM_PROGRAMMING_IN, EPNUM_PROGRAMMING_OUT, CFG_TUD_HID_EP_BUFSIZE, 10)};
 
 #if TUD_OPT_HIGH_SPEED
 // Per USB specs: high speed capable device must report device_qualifier and other_speed_configuration
