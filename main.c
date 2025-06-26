@@ -21,6 +21,7 @@ int main()
     macropad_gpio_init();
     macropad_hid_init();
     macropad_core_init();
+    macropad_flash_init();
     mount_led_flash();
 
     while (1)
@@ -41,7 +42,7 @@ int main()
             {
                 switch_states[key_idx] = true;
                 play_macro_sequence(key_idx);
-                send_release_all();
+                send_release_all(); // TODO do we want to store this in the macro?
             }
 
             // Release all other keys if one is pressed

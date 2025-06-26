@@ -12,6 +12,6 @@
 #define FLASH_READ_START (FLASH_WRITE_START + XIP_BASE)
 
 void macropad_flash_init();
-int write_store_to_flash(const hid_macro_store *macro_store);
-void read_store_from_flash(hid_macro_store *macro_store);
+int write_store_to_flash(const hid_macro_store_t *macro_store);
+void read_store_from_flash(hid_macro_store_t *macro_store);
 #endif

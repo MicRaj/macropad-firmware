@@ -21,9 +21,10 @@ typedef struct __attribute__((packed))
 
 enum
 {
-    CMD_CLEAR, // Clear the current working buffer (before adding new reports)
-    CMD_ADD,   // Add a single hid_macro_report_t to the working buffer
-    CMD_COMMIT // Save the working buffer to the specified macro slot
+    CMD_CLEAR,  // Clear the current working buffer (before adding new reports)
+    CMD_ADD,    // Add a single hid_macro_report_t to the working buffer
+    CMD_COMMIT, // Save the working buffer to the specified macro slot
+    CMD_FLASH   // Save the current macro_store to flash
 };
 
 void excecute_host_command(hid_host_cmd_t *host_command);
