@@ -27,7 +27,6 @@
 
 #include <hid_device.h>
 #include "tusb_config.h"
-#define CUSTOM_REPORT_SIZE 64 // TODO 63 or 64
 enum
 {
   REPORT_ID_KEYBOARD = 1,

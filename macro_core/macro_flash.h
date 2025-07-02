@@ -8,7 +8,8 @@
 #include "hardware/flash.h"
 #include "macro_core.h"
 
-#define FLASH_WRITE_START (PICO_FLASH_SIZE_BYTES - FLASH_SECTOR_SIZE)
+#define FLASH_SECTOR_NUMBER 4
+#define FLASH_WRITE_START (PICO_FLASH_SIZE_BYTES - FLASH_SECTOR_NUMBER * FLASH_SECTOR_SIZE)
 #define FLASH_READ_START (FLASH_WRITE_START + XIP_BASE)
 
 void macropad_flash_init();
