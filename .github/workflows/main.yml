@@ -2,33 +2,34 @@ name: Build Pico Firmware
 
 on:
   push:
+  pull_request:
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
-      with:
-        submodules: recursive  # pico-sdk submodule
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive # pico-sdk submodule
 
-    - name: Install build dependencies
-      run: |
-        sudo apt update
-        sudo apt install -y cmake gcc-arm-none-eabi build-essential
+      - name: Install build dependencies
+        run: |
+          sudo apt update
+          sudo apt install -y cmake gcc-arm-none-eabi build-essential
 
-    - name: Create build directory and run CMake
-      run: |
-        mkdir -p build
-        cd build
-        cmake ..
-        make
+      - name: Create build directory and run CMake
+        run: |
+          mkdir -p build
+          cd build
+          cmake ..
+          make
 
-    - name: Upload firmware
-      uses: actions/upload-artifact@v4
-      with:
-        name: firmware
-        path: |
+      - name: Upload firmware
+        uses: actions/upload-artifact@v4
+        with:
+          name: firmware
+          path: |
             build/*.uf2
             build/*.elf
