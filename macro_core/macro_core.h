@@ -13,7 +13,7 @@
                                        (k5) }   \
     }
 
-#define MAX_SEQUENCE_LENGTH 20
+#define MAX_SEQUENCE_LENGTH 255
 typedef struct
 {
     hid_macro_report_t report_sequence[MAX_SEQUENCE_LENGTH];

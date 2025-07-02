@@ -24,6 +24,7 @@ static void call_flash_range_program(void *param)
 int write_flash_page(uint8_t *base_write_address, uint8_t page_data[FLASH_PAGE_SIZE])
 {
     uintptr_t params[] = {(unsigned int)base_write_address, (uintptr_t)page_data};
+
     int rc = flash_safe_execute(call_flash_range_program, params, UINT32_MAX);
     if (rc != PICO_OK)
         return rc;
@@ -47,9 +48,21 @@ int write_flash_page(uint8_t *base_write_address, uint8_t page_data[FLASH_PAGE_S
     }
 }
 
+int clear_flash_store()
+{
+    int rc;
+    for (int i = 0; i < FLASH_SECTOR_NUMBER; i++)
+    {
+        rc = flash_safe_execute(call_flash_range_erase, (void *)(FLASH_WRITE_START + i * FLASH_SECTOR_SIZE), UINT32_MAX);
+        if (rc != PICO_OK)
+            return rc;
+    }
+    return PICO_OK;
+}
+
 int write_store_to_flash(const hid_macro_store_t *macro_store)
 {
-    int rc = flash_safe_execute(call_flash_range_erase, (void *)FLASH_WRITE_START, UINT32_MAX);
+    int rc = clear_flash_store();
     if (rc != PICO_OK)
         return rc;
 
