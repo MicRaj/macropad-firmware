@@ -1,4 +1,4 @@
-name: Build Pico Firmware
+name: build
 
 on:
   push:
