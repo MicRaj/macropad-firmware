@@ -1,0 +1,39 @@
+<map id="macro_core/macro_flash.h" name="macro_core/macro_flash.h">
+<area shape="rect" id="Node000001" title="Flash memory interface for storing macropad macros." alt="" coords="709,5,902,31"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,240,72,265"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="737,33,626,54,502,81,380,113,261,154,159,197,75,236,73,231,157,192,259,150,378,108,501,76,625,49,736,28"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="97,240,167,265"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="761,33,584,82,472,116,360,154,255,197,169,237,166,232,253,192,358,150,470,111,582,77,760,28"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="964,240,1065,265"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="818,29,997,228,993,231,814,33"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="900,79,996,104"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="829,28,914,70,911,75,827,33"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="1020,79,1151,104"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="851,28,1027,73,1026,78,850,33"/>
+<area shape="rect" id="Node000007" href="$macro__core_8h.html" title="Core macropad logic: macro storage, playback, and management." alt="" coords="693,79,803,104"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="798,33,768,70,764,66,794,29"/>
+<area shape="rect" id="Node000008" href="$macro__hid_8h.html" title="HID report handling and queue management." alt="" coords="371,152,517,192"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="704,107,531,151,529,146,703,101"/>
+<area shape="rect" id="Node000016" href="$macro__uart_8h.html" title="UART interface for the macropad firmware." alt="" coords="671,152,825,192"/>
+<area shape="poly" id="edge18_Node000007_Node000016" title=" " alt="" coords="751,104,751,138,745,138,745,104"/>
+<area shape="poly" id="edge9_Node000008_Node000002" title=" " alt="" coords="371,188,86,242,85,237,370,183"/>
+<area shape="poly" id="edge8_Node000008_Node000003" title=" " alt="" coords="371,194,182,242,180,236,370,189"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="482,240,553,265"/>
+<area shape="poly" id="edge10_Node000008_Node000009" title=" " alt="" coords="464,190,499,228,495,232,460,194"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="577,240,703,265"/>
+<area shape="poly" id="edge11_Node000008_Node000010" title=" " alt="" coords="492,190,599,232,597,237,490,194"/>
+<area shape="rect" id="Node000011" title=" " alt="" coords="727,240,790,265"/>
+<area shape="poly" id="edge12_Node000008_Node000011" title=" " alt="" coords="518,189,714,237,713,242,517,194"/>
+<area shape="rect" id="Node000012" title=" " alt="" coords="191,240,246,265"/>
+<area shape="poly" id="edge13_Node000008_Node000012" title=" " alt="" coords="391,195,260,240,258,235,389,189"/>
+<area shape="rect" id="Node000013" href="$usb__descriptors_8h.html" title="USB descriptor definitions for TinyUSB." alt="" coords="271,240,407,265"/>
+<area shape="poly" id="edge14_Node000008_Node000013" title=" " alt="" coords="420,194,367,234,364,229,417,190"/>
+<area shape="rect" id="Node000015" href="$tusb__config_8h.html" title="TinyUSB configuration file." alt="" coords="390,313,498,339"/>
+<area shape="poly" id="edge17_Node000008_Node000015" title=" " alt="" coords="447,192,447,300,441,300,441,192"/>
+<area shape="rect" id="Node000014" title=" " alt="" coords="261,313,365,339"/>
+<area shape="poly" id="edge15_Node000013_Node000014" title=" " alt="" coords="337,267,324,301,319,300,332,265"/>
+<area shape="poly" id="edge16_Node000013_Node000015" title=" " alt="" coords="357,263,417,303,414,308,354,268"/>
+<area shape="poly" id="edge19_Node000016_Node000004" title=" " alt="" coords="813,189,963,233,962,239,811,195"/>
+<area shape="rect" id="Node000017" title=" " alt="" coords="815,240,940,265"/>
+<area shape="poly" id="edge20_Node000016_Node000017" title=" " alt="" coords="781,190,848,231,845,235,778,194"/>
+</map>

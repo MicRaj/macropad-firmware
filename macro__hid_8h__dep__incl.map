@@ -1,0 +1,17 @@
+<map id="macro_hid/macro_hid.h" name="macro_hid/macro_hid.h">
+<area shape="rect" id="Node000001" title="HID report handling and queue management." alt="" coords="33,5,208,31"/>
+<area shape="rect" id="Node000002" href="$macro__core_8h.html" title="Core macropad logic: macro storage, playback, and management." alt="" coords="160,79,351,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="155,35,234,76,232,81,153,39"/>
+<area shape="rect" id="Node000005" href="$main_8c.html" title="Main file for the macropad firmware." alt="" coords="87,247,154,273"/>
+<area shape="poly" id="edge8_Node000001_Node000005" title=" " alt="" coords="98,42,52,89,30,119,14,153,8,172,14,191,28,210,47,225,88,246,86,251,44,229,24,213,9,193,3,172,9,151,25,117,48,86,94,38"/>
+<area shape="rect" id="Node000003" href="$macro__core_8c.html" title="Core macropad logic: macro storage, playback, and management." alt="" coords="293,159,482,185"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="288,109,369,157,366,161,285,113"/>
+<area shape="rect" id="Node000004" href="$macro__flash_8h.html" title="Flash memory interface for storing macropad macros." alt="" coords="24,159,217,185"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="225,113,142,161,139,157,222,109"/>
+<area shape="poly" id="edge7_Node000002_Node000005" title=" " alt="" coords="256,119,249,156,231,193,213,212,193,228,152,250,150,245,190,223,210,208,226,191,244,154,251,118"/>
+<area shape="rect" id="Node000006" href="$macro__custom__report_8h.html" title="Defines HID host commands and structures for the macropad firmware." alt="" coords="507,152,697,192"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="320,104,519,149,518,155,318,110"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="123,199,123,247,118,247,118,199"/>
+<area shape="rect" id="Node000007" href="$macro__custom__report_8c.html" title="Handles host commands for macro reprogramming." alt="" coords="507,240,697,280"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="605,206,605,240,599,240,599,206"/>
+</map>

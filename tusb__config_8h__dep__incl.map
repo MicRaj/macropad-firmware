@@ -1,0 +1,26 @@
+<map id="macro_hid/tusb_config.h" name="macro_hid/tusb_config.h">
+<area shape="rect" id="Node000001" title="TinyUSB configuration file." alt="" coords="401,5,581,31"/>
+<area shape="rect" id="Node000002" href="$macro__custom__report_8h.html" title="Defines HID host commands and structures for the macropad firmware." alt="" coords="507,299,698,339"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="500,43,519,103,561,213,597,297,592,299,556,215,513,105,495,45"/>
+<area shape="rect" id="Node000004" href="$macro__hid_8h.html" title="HID report handling and queue management." alt="" coords="274,152,449,177"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="473,43,374,154,370,150,469,40"/>
+<area shape="rect" id="Node000009" href="$usb__descriptors_8h.html" title="USB descriptor definitions for TinyUSB." alt="" coords="528,79,736,104"/>
+<area shape="poly" id="edge11_Node000001_Node000009" title=" " alt="" coords="527,34,610,76,608,81,524,39"/>
+<area shape="rect" id="Node000003" href="$macro__custom__report_8c.html" title="Handles host commands for macro reprogramming." alt="" coords="507,387,698,427"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="605,353,605,386,600,386,600,353"/>
+<area shape="rect" id="Node000005" href="$macro__core_8h.html" title="Core macropad logic: macro storage, playback, and management." alt="" coords="262,225,453,251"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="363,191,361,225,355,225,357,191"/>
+<area shape="rect" id="Node000008" href="$main_8c.html" title="Main file for the macropad firmware." alt="" coords="5,394,72,419"/>
+<area shape="poly" id="edge10_Node000004_Node000008" title=" " alt="" coords="261,180,202,195,141,219,85,253,61,275,41,300,31,324,30,349,37,393,32,394,24,350,26,322,36,297,57,271,82,249,139,214,200,190,260,175"/>
+<area shape="poly" id="edge8_Node000005_Node000002" title=" " alt="" coords="407,252,544,296,543,301,405,257"/>
+<area shape="rect" id="Node000006" href="$macro__core_8c.html" title="Core macropad logic: macro storage, playback, and management." alt="" coords="76,306,265,331"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="319,258,199,308,197,304,317,253"/>
+<area shape="rect" id="Node000007" href="$macro__flash_8h.html" title="Flash memory interface for storing macropad macros." alt="" coords="290,306,483,331"/>
+<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="369,263,385,305,380,307,364,265"/>
+<area shape="poly" id="edge9_Node000005_Node000008" title=" " alt="" coords="249,252,140,270,95,284,66,301,51,322,43,348,40,394,35,393,38,347,46,320,62,297,93,279,138,265,248,247"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="328,337,73,400,72,394,326,332"/>
+<area shape="poly" id="edge12_Node000009_Node000002" title=" " alt="" coords="631,118,608,299,602,298,626,117"/>
+<area shape="poly" id="edge13_Node000009_Node000004" title=" " alt="" coords="576,110,406,154,404,149,575,105"/>
+<area shape="rect" id="Node000010" href="$usb__descriptors_8c.html" title="USB descriptor definitions for TinyUSB." alt="" coords="641,152,847,177"/>
+<area shape="poly" id="edge14_Node000009_Node000010" title=" " alt="" coords="663,109,727,150,724,154,660,114"/>
+</map>

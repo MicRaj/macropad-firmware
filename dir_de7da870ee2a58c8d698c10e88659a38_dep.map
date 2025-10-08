@@ -1,0 +1,9 @@
+<map id="macro_hid" name="macro_hid">
+<area shape="rect" id="node1" href="dir_de7da870ee2a58c8d698c10e88659a38.html" title="macro_hid" alt="" coords="68,5,159,31"/>
+<area shape="rect" id="node2" href="dir_1066d9ca8f83bb0ba1c411bc627a6c80.html" title="macro_uart" alt="" coords="5,79,101,104"/>
+<area shape="poly" id="edge1" href="dir_000003_000004.html" alt="" coords="105,33,74,70,70,66,101,29"/>
+<area shape="rect" id="edge1-headlabel" href="dir_000003_000004.html" title="2" alt="" coords="77,63,86,78"/>
+<area shape="rect" id="node3" href="dir_11b6a1e10ffedf8d619d52a28ce90ece.html" title="macro_core" alt="" coords="125,79,224,104"/>
+<area shape="poly" id="edge2" href="dir_000003_000001.html" alt="" coords="125,29,158,66,154,70,121,33"/>
+<area shape="rect" id="edge2-headlabel" href="dir_000003_000001.html" title="1" alt="" coords="155,52,164,67"/>
+</map>

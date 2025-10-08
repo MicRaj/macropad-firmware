@@ -1,0 +1,9 @@
+<map id="macro_uart/macro_uart.c" name="macro_uart/macro_uart.c">
+<area shape="rect" id="Node000001" title="Implementation of UART functions for the macropad firmware." alt="" coords="31,5,217,31"/>
+<area shape="rect" id="Node000002" href="$macro__uart_8h.html" title="UART interface for the macropad firmware." alt="" coords="70,79,178,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="127,31,127,65,121,65,121,31"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,152,107,177"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="115,106,79,144,75,140,111,102"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="131,152,256,177"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="137,102,175,140,171,144,134,106"/>
+</map>

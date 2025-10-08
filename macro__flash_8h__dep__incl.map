@@ -1,0 +1,5 @@
+<map id="macro_core/macro_flash.h" name="macro_core/macro_flash.h">
+<area shape="rect" id="Node000001" title="Flash memory interface for storing macropad macros." alt="" coords="5,5,199,31"/>
+<area shape="rect" id="Node000002" href="$main_8c.html" title="Main file for the macropad firmware." alt="" coords="69,79,135,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="105,44,105,79,99,79,99,44"/>
+</map>
