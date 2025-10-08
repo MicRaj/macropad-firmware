@@ -1,3 +1,23 @@
+/**
+ * @file main.c
+ * @author Michal Rajzer
+ * @brief Main file for the macropad firmware.
+ * @version 0.1
+ * @date 2025-10-08
+ *
+ * @details
+ * This file contains the main initialisation and execution loop for the macropad firmware.
+ * It performs the following tasks:
+ *   - Initialises hardware and software modules, including GPIO, UART, HID, Flash, and Core functionality.
+ *   - Scans the macropad keys and executes macro sequences.
+ *   - Handles USB communication via TinyUSB, including HID report generation and transmission.
+ *
+ * @note
+ * The main loop must not be blocked by long delays or blocking functions.
+ * The function `tud_task()` must be called as frequently as possible within the main loop
+ * to ensure responsive USB HID behavior and maintain reliable communication with the host.
+ */
+
 #include "macro_uart/macro_uart.h"
 #include "macro_gpio/macro_gpio.h"
 #include "macro_hid/macro_hid.h"
@@ -14,9 +34,9 @@
 
 bool switch_states[NUM_BUTTONS] = {false};
 
+
 int main()
 {
-    stdio_init_all();
     macropad_uart_init();
     macropad_gpio_init();
     macropad_hid_init();
@@ -36,6 +56,7 @@ int main()
             char message[50];
             snprintf(message, sizeof(message), "Key pressed: %d\r\n", key_idx);
             uart_send_string(message);
+
 
             // Check if the key is not already pressed
             if (!switch_states[key_idx])

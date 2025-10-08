@@ -1,4 +1,12 @@
-/*
+/**
+ * @file tusb_config.h
+ * @brief TinyUSB configuration file.
+ *
+ * This file contains project-specific settings for TinyUSB,
+ * overriding the default configuration as needed.
+ *
+ * @note Based on TinyUSB example code and adapted for this project.
+ *   
  * The MIT License (MIT)
  *
  * Copyright (c) 2019 Ha Thach (tinyusb.org)
@@ -83,9 +91,9 @@ extern "C"
 #define CFG_TUSB_MEM_ALIGN __attribute__((aligned(4)))
 #endif
 
-    //--------------------------------------------------------------------
-    // DEVICE CONFIGURATION
-    //--------------------------------------------------------------------
+//--------------------------------------------------------------------
+// DEVICE CONFIGURATION
+//--------------------------------------------------------------------
 
 #ifndef CFG_TUD_ENDPOINT0_SIZE
 #define CFG_TUD_ENDPOINT0_SIZE 64

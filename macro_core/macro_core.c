@@ -1,12 +1,18 @@
+
+/**
+ * @file macro_core.c
+ * @brief Core macropad logic: macro storage, playback, and management.
+ * @author Michal Rajzer
+ *
+ * @see macro_core.h
+ */
 #include "macro_core.h"
-//--------------------------------------------------------------------+
-// Core macro functionality
-//--------------------------------------------------------------------+
 
 hid_macro_store_t macro_store;
 
 void macropad_core_init()
 {
+    // Leaving this uncommented will overwrite user macros on every boot.
     // Initial Macro Programming to flash
     // for (int i = 0; i < 9; i++)
     // {

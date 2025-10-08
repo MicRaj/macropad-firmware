@@ -1,8 +1,16 @@
+/**
+ * @file macro_flash.h
+ * @brief Flash memory interface for storing macropad macros.
+ * @author Michal Rajzer
+ *
+ * @see macro_flash.c
+ *
+ */
 #include "macro_flash.h"
 
 extern hid_macro_store_t macro_store;
 
-void macropad_flash_init() // Placeholder
+void macropad_flash_init() // Placeholder - move to core init?
 {
     read_store_from_flash(&macro_store);
 }

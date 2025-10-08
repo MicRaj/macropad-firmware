@@ -1,3 +1,13 @@
+/**
+ * @file macro_custom_report.c
+ * @author Michal Rajzer
+ * @brief Handles host commands for macro reprogramming.
+ * 
+ * @details
+ * See macro_custom_report.h for full documentation.
+ */
+
+
 #include "macro_custom_report.h"
 #include "../macro_uart/macro_uart.h"
 
