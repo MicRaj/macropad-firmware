@@ -17,10 +17,10 @@
  * - USB descriptors for device enumeration
  *
  * ## Project Structure
- * - `macro_core/` - core macro logic
- * - `macro_hid/` - HID handling and report queues
+ * - `macro_core/` - core macro logic and flash interface.
+ * - `macro_hid/`  - HID handling and report queues
  * - `macro_gpio/` - GPIO initialization and matrix scanning
- * - `macro_flash/` - Flash read/write for macro storage
+ * - `macro_uart/` - UART communication (debugging)
  *
  * ## References
  * - See `README.md` for setup, building, and usage instructions
