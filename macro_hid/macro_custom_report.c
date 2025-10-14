@@ -1,7 +1,17 @@
+/**
+ * @file macro_custom_report.c
+ * @author Michal Rajzer
+ * @brief Handles host commands for macro reprogramming.
+ * 
+ * @details
+ * See macro_custom_report.h for full documentation.
+ */
+
+
 #include "macro_custom_report.h"
 #include "../macro_uart/macro_uart.h"
 
-void excecute_host_command(hid_host_cmd_t *host_command)
+void execute_host_command(hid_host_cmd_t *host_command)
 {
     static hid_macro_sequence_t macro_sequence_buffer;
 

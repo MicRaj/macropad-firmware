@@ -1,2 +1,10 @@
-**/build/*
+# .gitignore for macropad-firmware
+
+# Ignore any 'build' directory and all its contents anywhere in the repo
+**/build/
+
+# VS Code workspace settings (local editor state)
 .vscode/
+
+# Generated or published documentation
+docs/html/

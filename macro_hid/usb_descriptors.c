@@ -1,4 +1,15 @@
-/*
+/**
+ * @file usb_descriptors.c
+ * @brief USB descriptor definitions for TinyUSB.
+ *
+ * This file provides the device, configuration, HID, and string descriptors
+ * required by TinyUSB for macropad enumeration and communication with the host.
+ * It includes descriptor callbacks.
+ * 
+ * @see usb_descriptors.h
+ *
+ * @note Based on TinyUSB example code and adapted for this project.
+ * 
  * The MIT License (MIT)
  *
  * Copyright (c) 2019 Ha Thach (tinyusb.org)

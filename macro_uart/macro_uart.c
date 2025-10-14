@@ -1,8 +1,14 @@
-#include "macro_uart.h"
+/**
+ * @file macro_uart.c
+ * @author Michal Rajzer
+ * @brief Implementation of UART functions for the macropad firmware.
+ *
+ * @details
+ * Used for debugging and sending key press information over UART.
+ * @see macro_uart.h
+ */
 
-//--------------------------------------------------------------------+
-// Macropad UART - Used for debugging
-//--------------------------------------------------------------------+
+#include "macro_uart.h"
 
 void macropad_uart_init()
 {

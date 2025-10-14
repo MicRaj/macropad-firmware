@@ -1,4 +1,13 @@
-/*
+/**
+ * @file usb_descriptors.h
+ * @brief USB descriptor definitions for TinyUSB.
+ *
+ * This header declares report ID and interface index enums only; the full
+ * device/configuration/interface descriptor data are defined in `usb_descriptors.c`.
+ * @see usb_descriptors.c
+ * 
+ * @note Based on TinyUSB example code and adapted for this project.
+ * 
  * The MIT License (MIT)
  *
  * Copyright (c) 2019 Ha Thach (tinyusb.org)

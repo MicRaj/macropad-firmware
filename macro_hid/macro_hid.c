@@ -1,11 +1,18 @@
+/**
+ * @file macro_hid.c
+ * @author Michal Rajzer
+ * @brief HID report handling and queue management.
+ * 
+ * @details
+ * Uses TinyUSB as the USB stack and communicates with the host
+ * using the HID protocol.
+ * @see macro_hid.h
+ */
+
 #include "macro_hid.h"
 #include "../macro_uart/macro_uart.h"
 #include "macro_custom_report.h"
 #include "usb_descriptors.h"
-
-//--------------------------------------------------------------------+
-// USB HID
-//--------------------------------------------------------------------+
 
 hid_macro_report_t hid_queue[HID_QUEUE_SIZE];
 int head = 0;  // Where to insert next
@@ -39,7 +46,7 @@ bool dequeue_hid_report(hid_macro_report_t *out_report)
     if (is_queue_empty())
         return false;
 
-    *out_report = hid_queue[tail]; // Assuming we want to return the first keycode
+    *out_report = hid_queue[tail];
     tail = (tail + 1) % HID_QUEUE_SIZE;
     count--;
     return true;
@@ -57,7 +64,7 @@ void macropad_hid_init(void)
         board_init_after_tusb();
     }
 
-    // Frequent tud_task calls for device enumeration
+    // Frequent tud_task calls for device enumeration - placeholder fix.
     for (int i = 0; i < 30; i++)
     {
         tud_task();
@@ -108,7 +115,6 @@ void tud_hid_report_complete_cb(uint8_t instance, uint8_t const *report, uint16_
     hid_macro_report_t next_report;
     if (dequeue_hid_report(&next_report))
     {
-        // Send the first report the rest is handled by tud_hid_report_complete_cb
         tud_hid_keyboard_report(REPORT_ID_KEYBOARD, next_report.modifier, next_report.keycode);
     }
 }
@@ -172,6 +178,6 @@ void tud_hid_set_report_cb(uint8_t instance, uint8_t report_id, hid_report_type_
             uart_send_string("Incorrect size\r\n");
             return;
         }
-        excecute_host_command((hid_host_cmd_t *)host_command);
+        execute_host_command((hid_host_cmd_t *)host_command);
     }
 }

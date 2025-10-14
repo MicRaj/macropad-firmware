@@ -1,8 +1,13 @@
+/**
+ * @file macro_gpio.c
+ * @brief GPIO handling for macropad keys and status LED.
+ *
+ * Provides functions to initialise GPIOs, scan the key matrix,
+ * and flash the mount LED.
+ * @see macro_gpio.h
+ */
 #include "macro_gpio.h"
 
-//--------------------------------------------------------------------+
-// Macropad GPIO - including matrix scan operation
-//--------------------------------------------------------------------+
 
 int cols[NUM_COLS] = {COL_0, COL_1, COL_2};
 int rows[NUM_ROWS] = {ROW_0, ROW_1, ROW_2};
