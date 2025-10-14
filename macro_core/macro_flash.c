@@ -1,9 +1,9 @@
 /**
- * @file macro_flash.h
+ * @file macro_flash.c
  * @brief Flash memory interface for storing macropad macros.
  * @author Michal Rajzer
  *
- * @see macro_flash.c
+ * @see macro_flash.h
  *
  */
 #include "macro_flash.h"

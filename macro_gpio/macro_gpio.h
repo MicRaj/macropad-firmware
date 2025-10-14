@@ -1,9 +1,9 @@
 /**
- * @file gpio.h
+ * @file macro_gpio.c
  * @brief GPIO interface for macropad keys and status LED.
  * @author Michal Rajzer
  *
- * Defines row and column pins, initializes GPIOs, scans the key matrix,
+ * Defines row and column pins, initialises GPIOs, scans the key matrix,
  * and provides a function to flash the mount LED.
  */
 #ifndef GPIO_H

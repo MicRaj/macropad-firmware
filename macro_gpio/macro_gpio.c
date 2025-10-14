@@ -2,7 +2,7 @@
  * @file macro_gpio.c
  * @brief GPIO handling for macropad keys and status LED.
  *
- * Provides functions to initialize GPIOs, scan the key matrix,
+ * Provides functions to initialise GPIOs, scan the key matrix,
  * and flash the mount LED.
  * @see macro_gpio.h
  */
