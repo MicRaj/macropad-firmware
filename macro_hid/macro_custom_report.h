@@ -59,6 +59,6 @@ enum
  * the macro buffer, adding reports, committing to a slot, or writing
  * to flash memory.
  */
-void excecute_host_command(hid_host_cmd_t *host_command);
+void execute_host_command(hid_host_cmd_t *host_command);
 
 #endif // CUSTOM_H

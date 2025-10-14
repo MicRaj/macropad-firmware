@@ -178,6 +178,6 @@ void tud_hid_set_report_cb(uint8_t instance, uint8_t report_id, hid_report_type_
             uart_send_string("Incorrect size\r\n");
             return;
         }
-        excecute_host_command((hid_host_cmd_t *)host_command);
+        execute_host_command((hid_host_cmd_t *)host_command);
     }
 }
