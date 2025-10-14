@@ -1,17 +1,22 @@
 <map id="macro_hid/macro_hid.h" name="macro_hid/macro_hid.h">
-<area shape="rect" id="Node000001" title="HID report handling and queue management." alt="" coords="33,5,208,31"/>
-<area shape="rect" id="Node000002" href="$macro__core_8h.html" title="Core macropad logic: macro storage, playback, and management." alt="" coords="160,79,351,104"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="155,35,234,76,232,81,153,39"/>
-<area shape="rect" id="Node000005" href="$main_8c.html" title="Main file for the macropad firmware." alt="" coords="87,247,154,273"/>
-<area shape="poly" id="edge8_Node000001_Node000005" title=" " alt="" coords="98,42,52,89,30,119,14,153,8,172,14,191,28,210,47,225,88,246,86,251,44,229,24,213,9,193,3,172,9,151,25,117,48,86,94,38"/>
-<area shape="rect" id="Node000003" href="$macro__core_8c.html" title="Core macropad logic: macro storage, playback, and management." alt="" coords="293,159,482,185"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="288,109,369,157,366,161,285,113"/>
-<area shape="rect" id="Node000004" href="$macro__flash_8h.html" title="Flash memory interface for storing macropad macros." alt="" coords="24,159,217,185"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="225,113,142,161,139,157,222,109"/>
-<area shape="poly" id="edge7_Node000002_Node000005" title=" " alt="" coords="256,119,249,156,231,193,213,212,193,228,152,250,150,245,190,223,210,208,226,191,244,154,251,118"/>
-<area shape="rect" id="Node000006" href="$macro__custom__report_8h.html" title="Defines HID host commands and structures for the macropad firmware." alt="" coords="507,152,697,192"/>
-<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="320,104,519,149,518,155,318,110"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="123,199,123,247,118,247,118,199"/>
-<area shape="rect" id="Node000007" href="$macro__custom__report_8c.html" title="Handles host commands for macro reprogramming." alt="" coords="507,240,697,280"/>
-<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="605,206,605,240,599,240,599,206"/>
+<area shape="rect" id="Node000001" title="HID report handling and queue management." alt="" coords="191,5,366,31"/>
+<area shape="rect" id="Node000002" href="$macro__core_8h.html" title="Core macropad logic: macro storage, playback, and management." alt="" coords="183,79,374,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="281,44,281,79,276,79,276,44"/>
+<area shape="rect" id="Node000006" href="$main_8c.html" title="Main file for the macropad firmware." alt="" coords="5,247,72,273"/>
+<area shape="poly" id="edge11_Node000001_Node000006" title=" " alt="" coords="217,37,170,54,121,78,76,111,57,131,41,153,32,177,31,203,38,247,32,248,25,203,27,176,36,151,53,127,73,107,119,73,168,49,215,32"/>
+<area shape="rect" id="Node000009" href="$macro__hid_8c.html" title="HID report handling and queue management." alt="" coords="704,247,877,273"/>
+<area shape="poly" id="edge10_Node000001_Node000009" title=" " alt="" coords="380,30,457,45,542,70,630,104,672,125,711,150,737,173,759,199,787,245,783,248,754,202,733,176,708,154,669,130,628,109,541,75,455,51,379,35"/>
+<area shape="rect" id="Node000003" href="$macro__core_8c.html" title="Core macropad logic: macro storage, playback, and management." alt="" coords="76,159,265,185"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="253,114,188,161,185,157,250,110"/>
+<area shape="rect" id="Node000004" href="$macro__flash_8h.html" title="Flash memory interface for storing macropad macros." alt="" coords="290,159,483,185"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="307,110,372,157,369,161,304,114"/>
+<area shape="poly" id="edge9_Node000002_Node000006" title=" " alt="" coords="171,103,114,121,88,135,66,154,52,176,44,202,41,247,35,247,38,201,47,174,62,150,85,131,112,116,169,98"/>
+<area shape="rect" id="Node000007" href="$macro__custom__report_8h.html" title="Defines HID host commands and structures for the macropad firmware." alt="" coords="507,152,698,192"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="340,105,525,149,524,155,338,110"/>
+<area shape="rect" id="Node000005" href="$macro__flash_8c.html" title="Flash memory interface for storing macropad macros." alt="" coords="272,247,464,273"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="384,199,373,247,368,246,379,197"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="328,191,73,253,72,248,326,185"/>
+<area shape="rect" id="Node000008" href="$macro__custom__report_8c.html" title="Handles host commands for macro reprogramming." alt="" coords="489,240,679,280"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="598,206,591,240,586,239,593,205"/>
+<area shape="poly" id="edge8_Node000007_Node000009" title=" " alt="" coords="657,195,767,245,765,250,655,200"/>
 </map>

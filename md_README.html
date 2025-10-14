@@ -72,14 +72,17 @@ $(function() {
   <div class="headertitle"><div class="title">macropad-firmware</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="autotoc_md3"></a> Firmware for the macropad.</p>
+<div class="textblock"><p><a class="anchor" id="autotoc_md3"></a> Firmware for a Macropad based on the Raspberry Pi RP2040 microcontroller.</p>
 <h1><a class="anchor" id="autotoc_md4"></a>
+Documentation</h1>
+<p>Documentation can be found at <code><a href="https://micraj.github.io/macropad-firmware/">https://micraj.github.io/macropad-firmware/</a></code></p>
+<h1><a class="anchor" id="autotoc_md5"></a>
 Prerequisites</h1>
 <ul>
 <li>Install CMake (at least version 3.13), python 3, a native compiler, and a GCC cross compiler <div class="fragment"><div class="line">sudo apt install cmake python3 build-essential gcc-arm-none-eabi libnewlib-arm-none-eabi libstdc++-arm-none-eabi-newlib</div>
 </div><!-- fragment --></li>
 </ul>
-<h1><a class="anchor" id="autotoc_md5"></a>
+<h1><a class="anchor" id="autotoc_md6"></a>
 Building and flashing firmware</h1>
 <ul>
 <li>Change directory to the build directory of the code/example you are trying to flash <div class="fragment"><div class="line">cd blink_example/build</div>
@@ -95,11 +98,12 @@ Building and flashing firmware</h1>
 </li>
 <li>Flash the Raspberry Pico.<ul>
 <li><b>Bootselect Button</b> - Holding the bootsel button while connecting to a computer will cause the pico to mount as a USB mass storage device, the uf2 file can then be copied into this new drive to flash the device.</li>
-<li><b>Debug Probe</b> - (coming soons)</li>
+<li><b>Debug Probe</b> - Connect CMSIS-DAP compatible probe to the SWD interface and program with openOCD. <div class="fragment"><div class="line">sudo openocd -f &quot;$OPENOCD_CFG&quot; -f &quot;$TARGET_CFG&quot; -c &quot;adapter speed 5000&quot; -c &quot;program $FIRMWARE_FILE verify reset exit&quot;</div>
+</div><!-- fragment --></li>
 </ul>
 </li>
 </ul>
-<h1><a class="anchor" id="autotoc_md6"></a>
+<h1><a class="anchor" id="autotoc_md7"></a>
 Debugging</h1>
 <ul>
 <li>Open a terminal and run: <div class="fragment"><div class="line">sudo openocd -f interface/cmsis-dap.cfg -f target/rp2040.cfg -c &quot;adapter speed 5000&quot;</div>
