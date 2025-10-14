@@ -1,5 +1,5 @@
 /**
- * @file macro_hid.h
+ * @file macro_hid.c
  * @author Michal Rajzer
  * @brief HID report handling and queue management.
  * 
