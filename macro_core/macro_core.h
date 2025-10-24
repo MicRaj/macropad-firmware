@@ -37,13 +37,13 @@ typedef struct
 {
     hid_macro_report_t report_sequence[MAX_SEQUENCE_LENGTH];
     uint8_t length;
-} hid_macro_sequence_t; // TODO Change these to macro_sequence_t?
+} macro_sequence_t; // TODO Change these to macro_sequence_t?
 
 /** Macro store containing multiple sequences */
 typedef struct
 {
-    hid_macro_sequence_t macro_sequences[NUM_MACROS];
-} hid_macro_store_t;
+    macro_sequence_t macro_sequences[NUM_MACROS];
+} macro_store_t;
 
 /**
  * @brief Used to write hardcoded macros to flash on first run. Unused otherwise.
@@ -63,7 +63,7 @@ void play_macro_sequence(uint8_t macro_id);
  * @param macro_id ID of the macro sequence to write (0–8)
  * @param macro_sequence Pointer to the sequence data to store
  */
-void write_macro_sequence(uint8_t macro_id, hid_macro_sequence_t *macro_sequence);
+void write_macro_sequence(uint8_t macro_id, macro_sequence_t *macro_sequence);
 
 /**
  * @brief Persist the current macro store to flash memory.

@@ -36,7 +36,7 @@ bool enqueue_hid_report(hid_macro_report_t *report)
         return false;
     }
     hid_queue[head] = *report;
-    head = (head + 1) % HID_QUEUE_SIZE;
+    head = (head + 1) % HID_QUEUE_SIZE; // Circular buffer
     count++;
     return true;
 }

@@ -32,7 +32,7 @@
  * Each command contains a command type and a 7-byte payload
  * used for command-specific data.
  */
-typedef struct __attribute__((packed)) // Packed might not be necessary here, as struct is copied field by field
+typedef struct __attribute__((packed)) // Needs packing for memcpy.
 {
     uint8_t command; /**< Command type (CMD_CLEAR, CMD_ADD, etc.) */
     uint8_t data[7]; /**< Command-specific payload */

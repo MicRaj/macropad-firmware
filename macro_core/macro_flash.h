@@ -33,7 +33,7 @@ void macropad_flash_init(void);
  * @param macro_store Pointer to the macro store to persist
  * @return PICO_OK on success, or error code on failure
  */
-int write_store_to_flash(const hid_macro_store_t *macro_store);
+int write_store_to_flash(const macro_store_t *macro_store);
 
 /**
  * @brief Read the macro store from flash memory into RAM.
@@ -42,6 +42,6 @@ int write_store_to_flash(const hid_macro_store_t *macro_store);
  * @note Loading this when the flash contents are from an incompatible
  *       version or unknown state may produce invalid data.
  */
-void read_store_from_flash(hid_macro_store_t *macro_store);
+void read_store_from_flash(macro_store_t *macro_store);
 
 #endif /* FLASH_H */

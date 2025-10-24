@@ -11,9 +11,9 @@
 #include "macro_custom_report.h"
 #include "../macro_uart/macro_uart.h"
 
-void execute_host_command(hid_host_cmd_t *host_command)
+void excecute_host_command(hid_host_cmd_t *host_command)
 {
-    static hid_macro_sequence_t macro_sequence_buffer;
+    static macro_sequence_t macro_sequence_buffer;
 
     if (host_command->command == CMD_CLEAR)
     {

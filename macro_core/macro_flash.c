@@ -8,7 +8,7 @@
  */
 #include "macro_flash.h"
 
-extern hid_macro_store_t macro_store;
+extern macro_store_t macro_store;
 
 void macropad_flash_init() // Placeholder - move to core init?
 {
@@ -68,7 +68,7 @@ int clear_flash_store()
     return PICO_OK;
 }
 
-int write_store_to_flash(const hid_macro_store_t *macro_store)
+int write_store_to_flash(const macro_store_t *macro_store)
 {
     int rc = clear_flash_store();
     if (rc != PICO_OK)
@@ -98,9 +98,9 @@ int write_store_to_flash(const hid_macro_store_t *macro_store)
     return PICO_OK;
 }
 
-void read_store_from_flash(hid_macro_store_t *macro_store)
+void read_store_from_flash(macro_store_t *macro_store)
 {
-    const hid_macro_store_t *flash_macro_store = (const hid_macro_store_t *)(FLASH_READ_START);
+    const macro_store_t *flash_macro_store = (const macro_store_t *)(FLASH_READ_START);
     memcpy(macro_store, flash_macro_store, sizeof(*macro_store));
 }
 

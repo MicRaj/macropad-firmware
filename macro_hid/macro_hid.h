@@ -28,7 +28,7 @@
 /**
  * @brief HID keyboard report structure (Report ID and reserved byte removed).
  */
-typedef struct __attribute__((packed))
+typedef struct __attribute__((packed)) // Packing for memcpy.
 {
     uint8_t modifier;     /**< Modifier key bitmask (Ctrl, Shift, Alt, GUI). */
     uint8_t keycode[6];   /**< Array of up to six simultaneous key codes. */

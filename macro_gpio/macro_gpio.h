@@ -1,5 +1,5 @@
 /**
- * @file macro_gpio.c
+ * @file macro_gpio.h
  * @brief GPIO interface for macropad keys and status LED.
  * @author Michal Rajzer
  *
