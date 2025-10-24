@@ -2,7 +2,7 @@
  * @file macro_hid.h
  * @author Michal Rajzer
  * @brief HID report handling and queue management.
- * 
+ *
  * @details
  * Uses TinyUSB as the USB stack and communicates with the host
  * using the HID protocol.
@@ -22,16 +22,16 @@
 #include "usb_descriptors.h"
 #include "tusb_config.h"
 
-//TODO Dynamic allocation with linked list?
-#define HID_QUEUE_SIZE 1024 /**< Maximum number of HID reports that can be queued. */ 
+// TODO Dynamic allocation with linked list?
+#define HID_QUEUE_SIZE 1024 /**< Maximum number of HID reports that can be queued. */
 
 /**
  * @brief HID keyboard report structure (Report ID and reserved byte removed).
  */
 typedef struct __attribute__((packed)) // Packing for memcpy.
 {
-    uint8_t modifier;     /**< Modifier key bitmask (Ctrl, Shift, Alt, GUI). */
-    uint8_t keycode[6];   /**< Array of up to six simultaneous key codes. */
+    uint8_t modifier;   /**< Modifier key bitmask (Ctrl, Shift, Alt, GUI). */
+    uint8_t keycode[6]; /**< Array of up to six simultaneous key codes. */
 } hid_macro_report_t;
 
 /**

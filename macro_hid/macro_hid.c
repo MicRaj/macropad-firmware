@@ -2,7 +2,7 @@
  * @file macro_hid.c
  * @author Michal Rajzer
  * @brief HID report handling and queue management.
- * 
+ *
  * @details
  * Uses TinyUSB as the USB stack and communicates with the host
  * using the HID protocol.
@@ -14,10 +14,12 @@
 #include "macro_custom_report.h"
 #include "usb_descriptors.h"
 
+int tx_ready = 0; /**< USB ready flag: non-zero if a new HID report can be sent (previous transfer completed). */
+
 hid_macro_report_t hid_queue[HID_QUEUE_SIZE];
 int head = 0;  // Where to insert next
 int tail = 0;  // Where to remove from
-int count = 0; // Number of items in queue
+int count = 0; // Number of items in queueAZSXWasx
 
 bool is_queue_full()
 {
@@ -91,32 +93,26 @@ void send_release_all(void)
     enqueue_hid_report(&report);
 }
 
-// tud_hid_report_complete_cb() is used to send the next report after previous one is complete
 void hid_task(void)
 {
     if (!tud_hid_ready())
         return;
 
     hid_macro_report_t report;
-    if (dequeue_hid_report(&report))
+    if (tx_ready && dequeue_hid_report(&report))
     {
-        // Send the first report the rest is handled by tud_hid_report_complete_cb
+        tx_ready = 0;
         tud_hid_keyboard_report(REPORT_ID_KEYBOARD, report.modifier, report.keycode);
     }
 }
 
 // Invoked when sent REPORT successfully to host
-// Application can use this to send the next report
 void tud_hid_report_complete_cb(uint8_t instance, uint8_t const *report, uint16_t len)
 {
     (void)instance;
     (void)len;
 
-    hid_macro_report_t next_report;
-    if (dequeue_hid_report(&next_report))
-    {
-        tud_hid_keyboard_report(REPORT_ID_KEYBOARD, next_report.modifier, next_report.keycode);
-    }
+    tx_ready = 1;
 }
 
 uint16_t tud_hid_get_report_cb(uint8_t instance, uint8_t report_id, hid_report_type_t report_type, uint8_t *buffer, uint16_t reqlen)
