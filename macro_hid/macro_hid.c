@@ -8,32 +8,27 @@
  * using the HID protocol.
  * @see macro_hid.h
  */
-
 #include "macro_hid.h"
-#include "../macro_uart/macro_uart.h"
-#include "macro_custom_report.h"
-#include "usb_descriptors.h"
 
-int tx_ready = 0; /**< USB ready flag: non-zero if a new HID report can be sent (previous transfer completed). */
+uint8_t b_tx_ready_flag = 0; /**< USB ready flag: non-zero if a new HID report can be sent (previous transfer completed). */
+uint8_t programming_cmd_flag = 0; /**< Programming command flag: a new programming command has been received from the host.*/
 
-hid_macro_report_t hid_queue[HID_QUEUE_SIZE];
-int head = 0;  // Where to insert next
-int tail = 0;  // Where to remove from
-int count = 0; // Number of items in queueAZSXWasx
+hid_report_queue_t hid_report_queue = {0};
+host_cmd_queue_t host_cmd_queue = {0};
 
-bool is_queue_full()
+bool is_hid_report_queue_full()
 {
     return count == HID_QUEUE_SIZE;
 }
 
-bool is_queue_empty()
+bool is_hid_report_queue_empty()
 {
     return count == 0;
 }
 
 bool enqueue_hid_report(hid_macro_report_t *report)
 {
-    if (is_queue_full())
+    if (is_hid_report_queue_full())
     {
         return false;
     }
@@ -45,7 +40,40 @@ bool enqueue_hid_report(hid_macro_report_t *report)
 
 bool dequeue_hid_report(hid_macro_report_t *out_report)
 {
-    if (is_queue_empty())
+    if (is_hid_report_queue_empty())
+        return false;
+
+    *out_report = hid_queue[tail];
+    tail = (tail + 1) % HID_QUEUE_SIZE;
+    count--;
+    return true;
+}
+
+bool is_host_cmd_queue_full()
+{
+    return count == HID_QUEUE_SIZE;
+}
+
+bool is_hostt_queue_empty()
+{
+    return count == 0;
+}
+
+bool enqueue_hid_report(hid_macro_report_t *report)
+{
+    if (is_hid_report_queue_full())
+    {
+        return false;
+    }
+    hid_queue[head] = *report;
+    head = (head + 1) % HID_QUEUE_SIZE; // Circular buffer
+    count++;
+    return true;
+}
+
+bool dequeue_hid_report(hid_macro_report_t *out_report)
+{
+    if (is_hid_report_queue_empty())
         return false;
 
     *out_report = hid_queue[tail];
@@ -99,9 +127,9 @@ void hid_task(void)
         return;
 
     hid_macro_report_t report;
-    if (tx_ready && dequeue_hid_report(&report))
+    if (usb_tx_ready_flag && dequeue_hid_report(&report))
     {
-        tx_ready = 0;
+        usb_tx_ready_flag = 0;
         tud_hid_keyboard_report(REPORT_ID_KEYBOARD, report.modifier, report.keycode);
     }
 }
@@ -112,7 +140,7 @@ void tud_hid_report_complete_cb(uint8_t instance, uint8_t const *report, uint16_
     (void)instance;
     (void)len;
 
-    tx_ready = 1;
+    usb_tx_ready_flag = 1;
 }
 
 uint16_t tud_hid_get_report_cb(uint8_t instance, uint8_t report_id, hid_report_type_t report_type, uint8_t *buffer, uint16_t reqlen)

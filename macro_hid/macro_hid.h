@@ -22,8 +22,30 @@
 #include "usb_descriptors.h"
 #include "tusb_config.h"
 
+#include "macro_hid.h"
+#include "../macro_uart/macro_uart.h"
+#include "macro_custom_report.h"
+#include "usb_descriptors.h"
+
 // TODO Dynamic allocation with linked list?
-#define HID_QUEUE_SIZE 1024 /**< Maximum number of HID reports that can be queued. */
+#define HID_QUEUE_SIZE 1024     /**< Maximum number of HID reports that can be queued. */
+#define HOST_CMD_QUEUE_SIZE 256 /**< Host command queue buffer size. */
+
+typedef struct
+{
+    hid_macro_report_t queue[HID_QUEUE_SIZE];
+    int16_t head;
+    int16_t tail;
+    int16_t count;
+} hid_report_queue_t;
+
+typedef struct
+{
+    host queue[HID_QUEUE_SIZE];
+    int16_t head;
+    int16_t tail;
+    int16_t count;
+} host_cmd_queue_t;
 
 /**
  * @brief HID keyboard report structure (Report ID and reserved byte removed).
