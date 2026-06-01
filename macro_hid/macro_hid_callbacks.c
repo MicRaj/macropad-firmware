@@ -4,6 +4,9 @@
  * @brief Defines TinyUSB HID callback functions.
  */
 
+#include <stdio.h>
+#include "macro_host_commands.h"
+#include "../macro_uart/macro_uart.h"
 #include "macro_hid_types.h"
 #include "macro_queue.h"
 #include "usb_descriptors.h"
@@ -15,6 +18,7 @@
 void tud_hid_report_complete_cb(uint8_t instance, uint8_t const *report, uint16_t len)
 {
     (void)instance;
+    (void)report;
     (void)len;
 
     hid_macro_report_t next_report;

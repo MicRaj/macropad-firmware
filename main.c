@@ -18,6 +18,7 @@
  * to ensure responsive USB HID behavior and maintain reliable communication with the host.
  */
 
+#include <stdio.h>
 #include "macro_uart/macro_uart.h"
 #include "macro_gpio/macro_gpio.h"
 #include "macro_hid/macro_hid.h"
