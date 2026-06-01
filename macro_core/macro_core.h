@@ -14,37 +14,10 @@
  */
 #ifndef CORE_H
 #define CORE_H
-#include "../macro_hid/macro_hid.h"
-#include "../macro_uart/macro_uart.h"
 
-#define NUM_MACROS 9
-
-/** Helper macro to define a HID report */
-#define HID_REPORT(mod, k0, k1, k2, k3, k4, k5) \
-    {                                           \
-        .modifier = (mod), .keycode = {(k0),    \
-                                       (k1),    \
-                                       (k2),    \
-                                       (k3),    \
-                                       (k4),    \
-                                       (k5) }   \
-    }
-
-#define MAX_SEQUENCE_LENGTH 255 /**< Max number of reports in a macro sequence. */ // Max that fits in uint8_t length.
-
-/** Macro sequence containing multiple HID reports */
-typedef struct
-{
-    hid_macro_report_t report_sequence[MAX_SEQUENCE_LENGTH];
-    uint8_t length;
-} hid_macro_sequence_t; // TODO Change these to macro_sequence_t?
-
-/** Macro store containing multiple sequences */
-typedef struct
-{
-    hid_macro_sequence_t macro_sequences[NUM_MACROS];
-} hid_macro_store_t;
-
+#include "macro_core_types.h"
+#include "../macro_hid/macro_queue.h"
+#include <string.h>
 /**
  * @brief Used to write hardcoded macros to flash on first run. Unused otherwise.
  * 
@@ -63,7 +36,7 @@ void play_macro_sequence(uint8_t macro_id);
  * @param macro_id ID of the macro sequence to write (0–8)
  * @param macro_sequence Pointer to the sequence data to store
  */
-void write_macro_sequence(uint8_t macro_id, hid_macro_sequence_t *macro_sequence);
+void write_macro_sequence(uint8_t macro_id, macro_sequence_t *macro_sequence);
 
 /**
  * @brief Persist the current macro store to flash memory.

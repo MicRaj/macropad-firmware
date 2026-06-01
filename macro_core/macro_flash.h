@@ -12,12 +12,13 @@
 #ifndef FLASH_H
 #define FLASH_H
 
-#include <stdio.h>
-#include <stdlib.h>
+
+#include <string.h>
+#include <stdbool.h>
 #include "pico/stdlib.h"
 #include "pico/flash.h"
 #include "hardware/flash.h"
-#include "macro_core.h"
+#include "macro_core_types.h"
 
 #define FLASH_SECTOR_NUMBER 4 /**< Number of flash sectors reserved for macro storage */ //TODO remove magic number
 #define FLASH_WRITE_START (PICO_FLASH_SIZE_BYTES - FLASH_SECTOR_NUMBER * FLASH_SECTOR_SIZE) /**< Start address for writing */
@@ -33,7 +34,7 @@ void macropad_flash_init(void);
  * @param macro_store Pointer to the macro store to persist
  * @return PICO_OK on success, or error code on failure
  */
-int write_store_to_flash(const hid_macro_store_t *macro_store);
+int write_store_to_flash(const macro_store_t *macro_store);
 
 /**
  * @brief Read the macro store from flash memory into RAM.
@@ -42,6 +43,8 @@ int write_store_to_flash(const hid_macro_store_t *macro_store);
  * @note Loading this when the flash contents are from an incompatible
  *       version or unknown state may produce invalid data.
  */
-void read_store_from_flash(hid_macro_store_t *macro_store);
+void read_store_from_flash(macro_store_t *macro_store);
+
+void write_current_macro_store_to_flash();
 
 #endif /* FLASH_H */

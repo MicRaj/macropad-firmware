@@ -18,6 +18,7 @@
  * to ensure responsive USB HID behavior and maintain reliable communication with the host.
  */
 
+#include <stdio.h>
 #include "macro_uart/macro_uart.h"
 #include "macro_gpio/macro_gpio.h"
 #include "macro_hid/macro_hid.h"
@@ -36,7 +37,7 @@ bool switch_states[NUM_BUTTONS] = {false};
 
 
 int main()
-{
+{   
     macropad_uart_init();
     macropad_gpio_init();
     macropad_hid_init();
@@ -56,7 +57,6 @@ int main()
             char message[50];
             snprintf(message, sizeof(message), "Key pressed: %d\r\n", key_idx);
             uart_send_string(message);
-
 
             // Check if the key is not already pressed
             if (!switch_states[key_idx])

@@ -24,7 +24,9 @@ add_executable(macropad-firmware
         macro_gpio/macro_gpio.c
         macro_hid/usb_descriptors.c
         macro_hid/macro_hid.c
-        macro_hid/macro_custom_report.c
+        macro_hid/macro_hid_callbacks.c
+        macro_hid/macro_host_commands.c
+        macro_hid/macro_queue.c
         macro_core/macro_core.c
         macro_core/macro_flash.c
         main.c
