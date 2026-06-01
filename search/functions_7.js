@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['read_5fstore_5ffrom_5fflash_0',['read_store_from_flash',['../macro__flash_8c.html#a6494f25b8117b710aa81d1bc8624769b',1,'read_store_from_flash(hid_macro_store_t *macro_store):&#160;macro_flash.c'],['../macro__flash_8h.html#a6494f25b8117b710aa81d1bc8624769b',1,'read_store_from_flash(hid_macro_store_t *macro_store):&#160;macro_flash.c']]]
+  ['send_5fkey_5fdown_0',['send_key_down',['../macro__hid_8c.html#ac02909f2a441e7c52221e918764ca8e8',1,'send_key_down(uint8_t key_id):&#160;macro_hid.c'],['../macro__hid_8h.html#ac02909f2a441e7c52221e918764ca8e8',1,'send_key_down(uint8_t key_id):&#160;macro_hid.c']]],
+  ['send_5frelease_5fall_1',['send_release_all',['../macro__hid_8c.html#a58b9fe970586c231b90aec13b42842e7',1,'send_release_all(void):&#160;macro_hid.c'],['../macro__hid_8h.html#a58b9fe970586c231b90aec13b42842e7',1,'send_release_all(void):&#160;macro_hid.c']]]
 ];

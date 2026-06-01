@@ -1,8 +1,5 @@
 var searchData=
 [
-  ['firmware_0',['firmware',['../md_README.html#autotoc_md6',1,'Building and flashing firmware'],['../md_README.html',1,'macropad-firmware']]],
-  ['firmware_20documentation_1',['Macropad Firmware Documentation',['../index.html',1,'']]],
-  ['flash_5fread_5fstart_2',['FLASH_READ_START',['../macro__flash_8h.html#a2a9d3fe0dcbd5dcb2f2c282ae65a69c0',1,'macro_flash.h']]],
-  ['flash_5fwrite_5fstart_3',['FLASH_WRITE_START',['../macro__flash_8h.html#aa5d04ecbc19ecd636b38cb0a46dd1ed6',1,'macro_flash.h']]],
-  ['flashing_20firmware_4',['Building and flashing firmware',['../md_README.html#autotoc_md6',1,'']]]
+  ['is_5fqueue_5fempty_0',['is_queue_empty',['../macro__queue_8c.html#a01c837df5691b6a1f74d355f82b082be',1,'is_queue_empty():&#160;macro_queue.c'],['../macro__queue_8h.html#a4414e9f3cb7445c0c8f45307a85fef28',1,'is_queue_empty(void):&#160;macro_queue.c']]],
+  ['is_5fqueue_5ffull_1',['is_queue_full',['../macro__queue_8c.html#aa1b1f695901e3e8c3ed7971e53e1b64b',1,'is_queue_full():&#160;macro_queue.c'],['../macro__queue_8h.html#a3a17bbb16975660b681e26ca5caa1ce9',1,'is_queue_full(void):&#160;macro_queue.c']]]
 ];

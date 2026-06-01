@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['enqueue_5fhid_5freport_0',['enqueue_hid_report',['../macro__hid_8c.html#abe2f831fc7f1bb9cda6769ba80d05f4e',1,'enqueue_hid_report(hid_macro_report_t *report):&#160;macro_hid.c'],['../macro__hid_8h.html#abe2f831fc7f1bb9cda6769ba80d05f4e',1,'enqueue_hid_report(hid_macro_report_t *report):&#160;macro_hid.c']]],
-  ['execute_5fhost_5fcommand_1',['execute_host_command',['../macro__custom__report_8c.html#a747730768afd48baa33718c72ce8cad2',1,'execute_host_command(hid_host_cmd_t *host_command):&#160;macro_custom_report.c'],['../macro__custom__report_8h.html#a747730768afd48baa33718c72ce8cad2',1,'execute_host_command(hid_host_cmd_t *host_command):&#160;macro_custom_report.c']]]
+  ['hid_5fqueue_5fsize_0',['HID_QUEUE_SIZE',['../macro__queue_8h.html#a4cd6a7aca95dc0126fec73c9fd7e028d',1,'macro_queue.h']]],
+  ['hid_5ftask_1',['hid_task',['../macro__hid_8c.html#ac57bcc68fc125c830d087095a1fbcbc0',1,'hid_task(void):&#160;macro_hid.c'],['../macro__hid_8h.html#ac57bcc68fc125c830d087095a1fbcbc0',1,'hid_task(void):&#160;macro_hid.c']]]
 ];

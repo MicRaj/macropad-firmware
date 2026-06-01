@@ -1,7 +1,13 @@
 <map id="macro_core/macro_flash.h" name="macro_core/macro_flash.h">
-<area shape="rect" id="Node000001" title="Flash memory interface for storing macropad macros." alt="" coords="81,5,274,31"/>
-<area shape="rect" id="Node000002" href="$macro__flash_8c.html" title="Flash memory interface for storing macropad macros." alt="" coords="5,79,197,104"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="157,42,116,80,112,76,153,38"/>
-<area shape="rect" id="Node000003" href="$main_8c.html" title="Main file for the macropad firmware." alt="" coords="221,79,288,104"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="202,38,244,76,240,80,198,42"/>
+<area shape="rect" id="Node000001" title="Flash memory interface for storing macropad macros." alt="" coords="210,5,403,31"/>
+<area shape="rect" id="Node000002" href="$macro__flash_8c.html" title="Flash memory interface for storing macropad macros." alt="" coords="5,86,197,111"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="265,38,132,88,130,83,263,33"/>
+<area shape="rect" id="Node000003" href="$macro__host__commands_8h.html" title="Defines HID host commands and structures for the macropad firmware." alt="" coords="221,79,392,119"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="309,44,309,79,304,79,304,44"/>
+<area shape="rect" id="Node000006" href="$main_8c.html" title="Main file for the macropad firmware." alt="" coords="416,86,483,111"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="341,35,429,83,427,88,338,40"/>
+<area shape="rect" id="Node000004" href="$macro__hid__callbacks_8c.html" title="Defines TinyUSB HID callback functions." alt="" coords="129,167,292,207"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="277,130,234,168,230,164,273,126"/>
+<area shape="rect" id="Node000005" href="$macro__host__commands_8c.html" title="Handles host commands for macro reprogramming." alt="" coords="316,167,487,207"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="340,126,382,164,379,168,336,130"/>
 </map>

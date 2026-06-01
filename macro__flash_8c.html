@@ -83,50 +83,36 @@ $(function() {
 <p>Flash memory interface for storing macropad macros.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="macro__flash_8h_source.html">macro_flash.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="macro__uart_8h_source.html">../macro_uart/macro_uart.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for macro_flash.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="macro__flash_8c__incl.png" border="0" usemap="#amacro__core_2macro__flash_8c" alt=""/></div>
 <map name="amacro__core_2macro__flash_8c" id="amacro__core_2macro__flash_8c">
-<area shape="rect" title="Flash memory interface for storing macropad macros." alt="" coords="709,5,901,31"/>
-<area shape="rect" href="macro__flash_8h.html" title="Flash memory interface for storing macropad macros." alt="" coords="749,79,862,104"/>
-<area shape="poly" title=" " alt="" coords="808,31,808,65,803,65,803,31"/>
-<area shape="rect" title=" " alt="" coords="5,313,72,339"/>
-<area shape="poly" title=" " alt="" coords="749,105,634,126,502,155,380,187,261,228,159,270,75,310,73,305,157,265,259,223,378,182,501,149,633,120,748,99"/>
-<area shape="rect" title=" " alt="" coords="97,313,167,339"/>
-<area shape="poly" title=" " alt="" coords="761,107,584,155,472,190,360,228,255,270,169,310,166,305,253,266,358,223,470,185,582,150,760,101"/>
-<area shape="rect" title=" " alt="" coords="964,313,1065,339"/>
-<area shape="poly" title=" " alt="" coords="818,103,997,301,993,305,814,106"/>
-<area shape="rect" title=" " alt="" coords="900,152,996,177"/>
-<area shape="poly" title=" " alt="" coords="829,102,914,143,911,148,827,106"/>
-<area shape="rect" title=" " alt="" coords="1020,152,1151,177"/>
-<area shape="poly" title=" " alt="" coords="851,101,1027,146,1026,151,850,107"/>
-<area shape="rect" href="macro__core_8h.html" title="Core macropad logic: macro storage, playback, and management." alt="" coords="693,152,803,177"/>
-<area shape="poly" title=" " alt="" coords="798,106,768,143,764,139,794,103"/>
-<area shape="rect" href="macro__hid_8h.html" title="HID report handling and queue management." alt="" coords="371,225,517,265"/>
-<area shape="poly" title=" " alt="" coords="704,180,531,225,529,219,703,175"/>
-<area shape="rect" href="macro__uart_8h.html" title="UART interface for the macropad firmware." alt="" coords="671,225,825,265"/>
-<area shape="poly" title=" " alt="" coords="751,178,751,212,745,212,745,178"/>
-<area shape="poly" title=" " alt="" coords="371,262,86,316,85,310,370,256"/>
-<area shape="poly" title=" " alt="" coords="371,268,182,315,180,310,370,262"/>
-<area shape="rect" title=" " alt="" coords="482,313,553,339"/>
-<area shape="poly" title=" " alt="" coords="464,264,499,301,495,305,460,267"/>
-<area shape="rect" title=" " alt="" coords="577,313,703,339"/>
-<area shape="poly" title=" " alt="" coords="492,263,599,306,597,311,490,268"/>
-<area shape="rect" title=" " alt="" coords="727,313,790,339"/>
-<area shape="poly" title=" " alt="" coords="518,262,714,310,713,316,517,267"/>
-<area shape="rect" title=" " alt="" coords="191,313,246,339"/>
-<area shape="poly" title=" " alt="" coords="391,268,260,313,258,308,389,263"/>
-<area shape="rect" href="usb__descriptors_8h.html" title="USB descriptor definitions for TinyUSB." alt="" coords="271,313,407,339"/>
-<area shape="poly" title=" " alt="" coords="420,268,367,307,364,303,417,263"/>
-<area shape="rect" href="tusb__config_8h.html" title="TinyUSB configuration file." alt="" coords="390,387,498,412"/>
-<area shape="poly" title=" " alt="" coords="447,266,447,373,441,373,441,266"/>
-<area shape="rect" title=" " alt="" coords="261,387,365,412"/>
-<area shape="poly" title=" " alt="" coords="337,340,324,375,319,373,332,338"/>
-<area shape="poly" title=" " alt="" coords="357,336,417,377,414,381,354,341"/>
-<area shape="poly" title=" " alt="" coords="813,263,963,307,962,312,811,268"/>
-<area shape="rect" title=" " alt="" coords="815,313,940,339"/>
-<area shape="poly" title=" " alt="" coords="781,263,848,304,845,308,778,268"/>
+<area shape="rect" title="Flash memory interface for storing macropad macros." alt="" coords="455,5,647,31"/>
+<area shape="rect" href="macro__flash_8h.html" title="Flash memory interface for storing macropad macros." alt="" coords="336,86,449,111"/>
+<area shape="poly" title=" " alt="" coords="529,33,429,82,427,78,527,28"/>
+<area shape="rect" href="macro__uart_8h.html" title="UART interface for the macropad firmware." alt="" coords="635,79,788,119"/>
+<area shape="poly" title=" " alt="" coords="576,28,661,70,659,75,573,33"/>
+<area shape="rect" title=" " alt="" coords="5,167,76,192"/>
+<area shape="poly" title=" " alt="" coords="340,114,90,169,89,164,339,109"/>
+<area shape="rect" title=" " alt="" coords="101,167,183,192"/>
+<area shape="poly" title=" " alt="" coords="357,114,192,165,191,160,355,109"/>
+<area shape="rect" title=" " alt="" coords="661,167,762,192"/>
+<area shape="poly" title=" " alt="" coords="440,109,653,161,651,166,438,114"/>
+<area shape="rect" title=" " alt="" coords="207,167,303,192"/>
+<area shape="poly" title=" " alt="" coords="374,114,289,162,286,158,371,109"/>
+<area shape="rect" title=" " alt="" coords="327,167,458,192"/>
+<area shape="poly" title=" " alt="" coords="395,112,395,153,390,153,390,112"/>
+<area shape="rect" href="macro__core__types_8h_source.html" title=" " alt="" coords="483,167,636,192"/>
+<area shape="poly" title=" " alt="" coords="418,109,524,158,522,163,416,114"/>
+<area shape="rect" href="macro__hid__types_8h_source.html" title=" " alt="" coords="486,240,633,280"/>
+<area shape="poly" title=" " alt="" coords="562,192,562,226,557,226,557,192"/>
+<area shape="rect" title=" " alt="" coords="524,328,595,353"/>
+<area shape="poly" title=" " alt="" coords="562,280,562,314,557,314,557,280"/>
+<area shape="poly" title=" " alt="" coords="714,119,714,153,709,153,709,119"/>
+<area shape="rect" title=" " alt="" coords="786,167,911,192"/>
+<area shape="poly" title=" " alt="" coords="746,116,818,157,815,162,743,121"/>
 </map>
 </div>
 </div><table class="memberdecls">
@@ -142,12 +128,12 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>write_flash_page</b> (
 <tr class="memitem:ab23fcd23908f0950e9ad761c0a753473" id="r_ab23fcd23908f0950e9ad761c0a753473"><td class="memItemLeft" align="right" valign="top"><a id="ab23fcd23908f0950e9ad761c0a753473" name="ab23fcd23908f0950e9ad761c0a753473"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>clear_flash_store</b> ()</td></tr>
 <tr class="separator:ab23fcd23908f0950e9ad761c0a753473"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a31124dff4e2478124c8491b9fc21f9e3" id="r_a31124dff4e2478124c8491b9fc21f9e3"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="macro__flash_8c.html#a31124dff4e2478124c8491b9fc21f9e3">write_store_to_flash</a> (const <a class="el" href="structhid__macro__store__t.html">hid_macro_store_t</a> *macro_store)</td></tr>
-<tr class="memdesc:a31124dff4e2478124c8491b9fc21f9e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write the given macro store to flash memory.  <br /></td></tr>
-<tr class="separator:a31124dff4e2478124c8491b9fc21f9e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6494f25b8117b710aa81d1bc8624769b" id="r_a6494f25b8117b710aa81d1bc8624769b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="macro__flash_8c.html#a6494f25b8117b710aa81d1bc8624769b">read_store_from_flash</a> (<a class="el" href="structhid__macro__store__t.html">hid_macro_store_t</a> *macro_store)</td></tr>
-<tr class="memdesc:a6494f25b8117b710aa81d1bc8624769b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read the macro store from flash memory into RAM.  <br /></td></tr>
-<tr class="separator:a6494f25b8117b710aa81d1bc8624769b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b6a4654643403f9113e7f5df97354ce" id="r_a2b6a4654643403f9113e7f5df97354ce"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="macro__flash_8c.html#a2b6a4654643403f9113e7f5df97354ce">write_store_to_flash</a> (const <a class="el" href="structmacro__store__t.html">macro_store_t</a> *macro_store)</td></tr>
+<tr class="memdesc:a2b6a4654643403f9113e7f5df97354ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write the given macro store to flash memory.  <br /></td></tr>
+<tr class="separator:a2b6a4654643403f9113e7f5df97354ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae1bb458c8a3df57f33996f5c46978092" id="r_ae1bb458c8a3df57f33996f5c46978092"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="macro__flash_8c.html#ae1bb458c8a3df57f33996f5c46978092">read_store_from_flash</a> (<a class="el" href="structmacro__store__t.html">macro_store_t</a> *macro_store)</td></tr>
+<tr class="memdesc:ae1bb458c8a3df57f33996f5c46978092"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read the macro store from flash memory into RAM.  <br /></td></tr>
+<tr class="separator:ae1bb458c8a3df57f33996f5c46978092"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa1fa2496720d18723e39d8ab8d41f41e" id="r_aa1fa2496720d18723e39d8ab8d41f41e"><td class="memItemLeft" align="right" valign="top"><a id="aa1fa2496720d18723e39d8ab8d41f41e" name="aa1fa2496720d18723e39d8ab8d41f41e"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>write_current_macro_store_to_flash</b> ()</td></tr>
 <tr class="memdesc:aa1fa2496720d18723e39d8ab8d41f41e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Persist the current macro store to flash memory. <br /></td></tr>
@@ -155,17 +141,17 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>write_current_macro_s
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:ae2ed5ca6ee59e9a417736d8dffc95675" id="r_ae2ed5ca6ee59e9a417736d8dffc95675"><td class="memItemLeft" align="right" valign="top"><a id="ae2ed5ca6ee59e9a417736d8dffc95675" name="ae2ed5ca6ee59e9a417736d8dffc95675"></a>
-<a class="el" href="structhid__macro__store__t.html">hid_macro_store_t</a>&#160;</td><td class="memItemRight" valign="bottom"><b>macro_store</b></td></tr>
-<tr class="separator:ae2ed5ca6ee59e9a417736d8dffc95675"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f82469b70183e7896d439a8f61e188f" id="r_a0f82469b70183e7896d439a8f61e188f"><td class="memItemLeft" align="right" valign="top"><a id="a0f82469b70183e7896d439a8f61e188f" name="a0f82469b70183e7896d439a8f61e188f"></a>
+<a class="el" href="structmacro__store__t.html">macro_store_t</a>&#160;</td><td class="memItemRight" valign="bottom"><b>macro_store</b></td></tr>
+<tr class="separator:a0f82469b70183e7896d439a8f61e188f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Flash memory interface for storing macropad macros. </p>
 <dl class="section author"><dt>Author</dt><dd>Michal Rajzer</dd></dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="macro__flash_8h.html" title="Flash memory interface for storing macropad macros.">macro_flash.h</a> </dd></dl>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a id="a6494f25b8117b710aa81d1bc8624769b" name="a6494f25b8117b710aa81d1bc8624769b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6494f25b8117b710aa81d1bc8624769b">&#9670;&#160;</a></span>read_store_from_flash()</h2>
+<a id="ae1bb458c8a3df57f33996f5c46978092" name="ae1bb458c8a3df57f33996f5c46978092"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae1bb458c8a3df57f33996f5c46978092">&#9670;&#160;</a></span>read_store_from_flash()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -173,7 +159,7 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname">void read_store_from_flash </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structhid__macro__store__t.html">hid_macro_store_t</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="structmacro__store__t.html">macro_store_t</a> *&#160;</td>
           <td class="paramname"><em>macro_store</em></td><td>)</td>
           <td></td>
         </tr>
@@ -191,8 +177,8 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="a31124dff4e2478124c8491b9fc21f9e3" name="a31124dff4e2478124c8491b9fc21f9e3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a31124dff4e2478124c8491b9fc21f9e3">&#9670;&#160;</a></span>write_store_to_flash()</h2>
+<a id="a2b6a4654643403f9113e7f5df97354ce" name="a2b6a4654643403f9113e7f5df97354ce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2b6a4654643403f9113e7f5df97354ce">&#9670;&#160;</a></span>write_store_to_flash()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -200,7 +186,7 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname">int write_store_to_flash </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="structhid__macro__store__t.html">hid_macro_store_t</a> *&#160;</td>
+          <td class="paramtype">const <a class="el" href="structmacro__store__t.html">macro_store_t</a> *&#160;</td>
           <td class="paramname"><em>macro_store</em></td><td>)</td>
           <td></td>
         </tr>

@@ -1,0 +1,7 @@
+<map id="macro_hid/macro_host_commands.h" name="macro_hid/macro_host_commands.h">
+<area shape="rect" id="Node000001" title="Defines HID host commands and structures for the macropad firmware." alt="" coords="96,5,267,45"/>
+<area shape="rect" id="Node000002" href="$macro__hid__callbacks_8c.html" title="Defines TinyUSB HID callback functions." alt="" coords="5,93,168,133"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="152,57,109,95,106,91,148,53"/>
+<area shape="rect" id="Node000003" href="$macro__host__commands_8c.html" title="Handles host commands for macro reprogramming." alt="" coords="192,93,363,133"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="215,53,258,91,254,95,211,57"/>
+</map>

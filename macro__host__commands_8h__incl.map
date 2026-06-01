@@ -1,0 +1,23 @@
+<map id="macro_hid/macro_host_commands.h" name="macro_hid/macro_host_commands.h">
+<area shape="rect" id="Node000001" title="Defines HID host commands and structures for the macropad firmware." alt="" coords="93,5,263,45"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,189,76,214"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="165,47,61,179,56,176,161,44"/>
+<area shape="rect" id="Node000003" href="$macro__core__types_8h_source.html" title=" " alt="" coords="101,181,255,221"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="181,46,181,168,175,168,175,46"/>
+<area shape="rect" id="Node000006" href="$macro__flash_8h.html" title="Flash memory interface for storing macropad macros." alt="" coords="250,93,405,133"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="212,43,284,84,282,89,209,48"/>
+<area shape="rect" id="Node000004" href="$macro__hid__types_8h_source.html" title=" " alt="" coords="105,269,251,309"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="181,222,181,255,175,255,175,222"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="143,357,213,383"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="181,310,181,343,175,343,175,310"/>
+<area shape="poly" id="edge6_Node000006_Node000002" title=" " alt="" coords="254,136,89,184,83,186,81,181,88,179,252,131"/>
+<area shape="poly" id="edge11_Node000006_Node000003" title=" " alt="" coords="296,136,224,177,221,172,293,131"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="554,189,637,214"/>
+<area shape="poly" id="edge7_Node000006_Node000007" title=" " alt="" coords="390,131,543,179,551,182,550,187,541,184,389,136"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="661,189,762,214"/>
+<area shape="poly" id="edge8_Node000006_Node000008" title=" " alt="" coords="406,126,521,149,649,179,663,182,661,187,648,184,520,155,404,131"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="279,189,375,214"/>
+<area shape="poly" id="edge9_Node000006_Node000009" title=" " alt="" coords="330,134,330,175,325,175,325,134"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="399,189,530,214"/>
+<area shape="poly" id="edge10_Node000006_Node000010" title=" " alt="" coords="359,131,436,179,433,184,356,136"/>
+</map>
