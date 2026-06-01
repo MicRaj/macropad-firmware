@@ -12,53 +12,16 @@
 #define HID_H
 
 #include <stdlib.h>
-#include <stdio.h>
 #include <string.h>
 
 #include <bsp/board_api.h>
 #include <tusb.h>
 #include <hid.h>
 
+#include "macro_hid_types.h"
+#include "macro_queue.h"
 #include "usb_descriptors.h"
 #include "tusb_config.h"
-
-//TODO Dynamic allocation with linked list?
-#define HID_QUEUE_SIZE 1024 /**< Maximum number of HID reports that can be queued. */ 
-
-/**
- * @brief HID keyboard report structure (Report ID and reserved byte removed).
- */
-typedef struct __attribute__((packed)) // Packing for memcpy.
-{
-    uint8_t modifier;     /**< Modifier key bitmask (Ctrl, Shift, Alt, GUI). */
-    uint8_t keycode[6];   /**< Array of up to six simultaneous key codes. */
-} hid_macro_report_t;
-
-/**
- * @brief Checks if the HID report queue is full.
- * @return true if the queue is full, false otherwise.
- */
-bool is_queue_full(void);
-
-/**
- * @brief Checks if the HID report queue is empty.
- * @return true if the queue is empty, false otherwise.
- */
-bool is_queue_empty(void);
-
-/**
- * @brief Adds a HID report to the queue.
- * @param report Pointer to the HID report to enqueue.
- * @return true if the report was successfully enqueued, false if the queue is full.
- */
-bool enqueue_hid_report(hid_macro_report_t *report);
-
-/**
- * @brief Removes and retrieves the next HID report from the queue.
- * @param[out] out_report Pointer to store the dequeued HID report.
- * @return true if a report was dequeued, false if the queue was empty.
- */
-bool dequeue_hid_report(hid_macro_report_t *out_report);
 
 /**
  * @brief Initializes the macropad HID system.

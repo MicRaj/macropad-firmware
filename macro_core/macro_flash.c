@@ -7,6 +7,7 @@
  *
  */
 #include "macro_flash.h"
+#include "../macro_uart/macro_uart.h"
 
 extern macro_store_t macro_store;
 
@@ -40,7 +41,7 @@ int write_flash_page(uint8_t *base_write_address, uint8_t page_data[FLASH_PAGE_S
     // Check for valid flash
     uint8_t *base_read_address = (uint8_t *)(base_write_address + XIP_BASE);
     bool mismatch = false;
-    for (uint i = 0; i < FLASH_PAGE_SIZE; i++)
+    for (int i = 0; i < FLASH_PAGE_SIZE; i++)
     {
         if (page_data[i] != base_read_address[i])
             mismatch = true;
