@@ -7,7 +7,7 @@
  * @see macro_core.h
  */
 #include "macro_core.h"
-
+#define init_flash 1
 macro_store_t macro_store;
 
 void macropad_core_init()

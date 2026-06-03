@@ -13,6 +13,9 @@
 
 #include <bsp/board_api.h>
 #include <tusb.h>
+
+extern int tx_ready;
+
 // Invoked when sent REPORT successfully to host
 // Application can use this to send the next report
 void tud_hid_report_complete_cb(uint8_t instance, uint8_t const *report, uint16_t len)
@@ -20,12 +23,7 @@ void tud_hid_report_complete_cb(uint8_t instance, uint8_t const *report, uint16_
     (void)instance;
     (void)report;
     (void)len;
-
-    hid_macro_report_t next_report;
-    if (dequeue_hid_report(&next_report))
-    {
-        tud_hid_keyboard_report(REPORT_ID_KEYBOARD, next_report.modifier, next_report.keycode);
-    }
+    tx_ready = true;
 }
 
 uint16_t tud_hid_get_report_cb(uint8_t instance, uint8_t report_id, hid_report_type_t report_type, uint8_t *buffer, uint16_t reqlen)

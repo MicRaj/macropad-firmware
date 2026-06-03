@@ -29,7 +29,7 @@ cd "$BUILD_DIR"
 openocd -f "$OPENOCD_CFG" -f "$TARGET_CFG" \
   -c "reset_config srst_only srst_nogate" \
   -c "transport select swd" \
-  -c "adapter speed 5000" \
+  -c "adapter speed 1000" \
   -c "program macropad-firmware.elf verify reset exit"
   
 if [[ $? -eq 0 ]]; then

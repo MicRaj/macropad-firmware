@@ -16,6 +16,7 @@
 
 #include <string.h>
 #include "../macro_core/macro_core_types.h"
+#include "../macro_core/macro_core.h"
 #include "../macro_core/macro_flash.h"
 
 /**

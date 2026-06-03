@@ -9,7 +9,7 @@
  */
 
 #include "macro_uart.h"
-
+#define UART_DEBUG 1
 void macropad_uart_init()
 {
     #ifdef UART_DEBUG

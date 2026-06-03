@@ -17,7 +17,11 @@
 
 #include "macro_core_types.h"
 #include "../macro_hid/macro_queue.h"
+#include "macro_flash.h"
+
+#include "pico/stdlib.h"
 #include <string.h>
+#include <hid.h>
 /**
  * @brief Used to write hardcoded macros to flash on first run. Unused otherwise.
  * 

@@ -12,6 +12,8 @@
 #include "macro_hid.h"
 #include "../macro_uart/macro_uart.h"
 
+volatile bool tx_ready = true;
+
 void macropad_hid_init(void)
 {
     board_init();
@@ -25,7 +27,7 @@ void macropad_hid_init(void)
     }
 
     // Frequent tud_task calls for device enumeration - placeholder fix.
-    for (int i = 0; i < 30; i++)
+    for (int i = 0; i < 50; i++)
     {
         tud_task();
         sleep_ms(10);
@@ -58,9 +60,9 @@ void hid_task(void)
         return;
 
     hid_macro_report_t report;
-    if (dequeue_hid_report(&report))
+    if (tx_ready && dequeue_hid_report(&report))
     {
-        // Send the first report the rest is handled by tud_hid_report_complete_cb
+        tx_ready = false;
         tud_hid_keyboard_report(REPORT_ID_KEYBOARD, report.modifier, report.keycode);
     }
 }
