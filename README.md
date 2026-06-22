@@ -40,7 +40,7 @@ Documentation can be found at `https://micraj.github.io/macropad-firmware/`
 ## Debugging
 - Open a terminal and run:
   ```
-  sudo openocd -f interface/cmsis-dap.cfg -f target/rp2040.cfg -c "adapter speed 5000" -c "gdb_memory_map disable"
+  sudo openocd -f interface/cmsis-dap.cfg -f target/rp2040.cfg -c "adapter speed 5000"
   ```
 - In another terminal run:
   ```

@@ -25,6 +25,12 @@ void execute_host_command(hid_host_cmd_t *host_command)
     {
         if (macro_sequence_buffer.length < MAX_SEQUENCE_LENGTH)
         {
+            char message[50];
+            for (int i = 0; i < 9; i++)
+            {
+                snprintf(message, sizeof(message), "0x%02X ", host_command->data[i]);
+                uart_send_string(message);
+            }
             memcpy(&macro_sequence_buffer.report_sequence[macro_sequence_buffer.length],
                    host_command->data,
                    sizeof(hid_macro_report_t));

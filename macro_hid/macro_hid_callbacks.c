@@ -41,6 +41,7 @@ uint16_t tud_hid_get_report_cb(uint8_t instance, uint8_t report_id, hid_report_t
 void tud_hid_set_report_cb(uint8_t instance, uint8_t report_id, hid_report_type_t report_type, uint8_t const *buffer, uint16_t bufsize)
 {
     char message[128];
+    if (bufsize>5){
     snprintf(message, sizeof(message),
              "Interface (instance): %u, Report ID: %u, Length: %u, Report Type: %u\r\n",
              instance, report_id, bufsize, report_type);
@@ -53,6 +54,7 @@ void tud_hid_set_report_cb(uint8_t instance, uint8_t report_id, hid_report_type_
     }
 
     uart_send_string("\r\n");
+    }
     if (instance == ITF_NUM_HID)
     {
         if (report_type == HID_REPORT_TYPE_OUTPUT)
@@ -78,6 +80,10 @@ void tud_hid_set_report_cb(uint8_t instance, uint8_t report_id, hid_report_type_
     }
     else if (instance == ITF_NUM_PROGRAMMING)
     {
+        if (bufsize <= 1) // Bug on application side, sending 1 byte reports.
+        {
+            return;
+        }
         uart_send_string("Custom Report Received\r\n");
         uint8_t const *host_command = buffer + 1;
         if (bufsize < 8)

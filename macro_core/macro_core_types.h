@@ -5,17 +5,6 @@
 
 #define NUM_MACROS 9
 
-/** Helper macro to define a HID report */
-#define HID_REPORT(mod, k0, k1, k2, k3, k4, k5) \
-    {                                           \
-        .modifier = (mod), .keycode = {(k0),    \
-                                       (k1),    \
-                                       (k2),    \
-                                       (k3),    \
-                                       (k4),    \
-                                       (k5) }   \
-    }
-
 #define MAX_SEQUENCE_LENGTH 255 /**< Max number of reports in a macro sequence. */ // Max that fits in uint8_t length.
 
 /** Macro sequence containing multiple HID reports */

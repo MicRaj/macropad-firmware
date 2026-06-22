@@ -20,7 +20,7 @@
 #include "hardware/flash.h"
 #include "macro_core_types.h"
 
-#define FLASH_SECTOR_NUMBER 4 /**< Number of flash sectors reserved for macro storage */ //TODO remove magic number
+#define FLASH_SECTOR_NUMBER 8 /**< Number of flash sectors reserved for macro storage */ //TODO remove magic number
 #define FLASH_WRITE_START (PICO_FLASH_SIZE_BYTES - FLASH_SECTOR_NUMBER * FLASH_SECTOR_SIZE) /**< Start address for writing */
 #define FLASH_READ_START (FLASH_WRITE_START + XIP_BASE) /**< Read address in memory-mapped space */
 

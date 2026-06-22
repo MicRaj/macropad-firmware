@@ -24,8 +24,10 @@
 #include "macro_hid/macro_hid.h"
 #include "macro_core/macro_core.h"
 #include "macro_core/macro_flash.h"
+#include "pico/time.h"
 #include <tusb.h>
 #include <hid.h>
+#include <inttypes.h>
 
 #define NUM_BUTTONS 9
 
@@ -36,11 +38,13 @@
 typedef enum {
     MACRO_IDLE,
     MACRO_SENDING,
+    MACRO_WAITING
 } macro_state_t;
 
 static macro_state_t state = MACRO_IDLE;
 
 extern volatile bool tx_ready;
+uint64_t start_time, elapsed_time, delay_time;
 bool switch_states[NUM_BUTTONS] = {false};
 
 
@@ -56,7 +60,7 @@ int main()
     while (1)
     {
         tud_task(); // tinyusb device task
-        hid_task();
+        // hid_task();
 
         if (state == MACRO_IDLE)
         {
@@ -101,10 +105,27 @@ int main()
                 {   
                     tx_ready = false; // Clear the flag until the next report is ready
                     tud_hid_keyboard_report(REPORT_ID_KEYBOARD, next_report.modifier, next_report.keycode);
+                    start_time = time_us_64();
+                    delay_time = next_report.delay_ms * 1000; // Convert ms to us
+                    char message[50];
+                    snprintf(message, sizeof(message), "Delay %" PRIu64 "\r\n", delay_time);
+                    uart_send_string(message);
+                    if (next_report.delay_ms > 0)
+                    {
+                        state = MACRO_WAITING;
+                    }
                 } else
                 {
                     state = MACRO_IDLE; // No more reports to send, return to idle state
                 }
+            }
+        }
+        else if (state == MACRO_WAITING)
+        {
+            elapsed_time = time_us_64() - start_time;
+            if (elapsed_time >= delay_time)
+            {
+                state = MACRO_SENDING; // Delay has passed, send the next report
             }
         }
     }

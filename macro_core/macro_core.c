@@ -22,7 +22,7 @@ void macropad_core_init()
 
     macro_sequence_t key1_sequence = {
         .report_sequence = {
-            HID_REPORT(KEYBOARD_MODIFIER_LEFTSHIFT, HID_KEY_H, 0, 0, 0, 0, 0), // Shift + H
+            HID_REPORT_DELAY(KEYBOARD_MODIFIER_LEFTSHIFT, HID_KEY_L, 0, 0, 0, 0, 0, 1000), // Shift + H
             HID_REPORT(0, HID_KEY_E, 0, 0, 0, 0, 0),                           // E
             HID_REPORT(0, HID_KEY_L, 0, 0, 0, 0, 0),                           // L
             HID_REPORT(0, 0, 0, 0, 0, 0, 0),                                   // Release between same key press

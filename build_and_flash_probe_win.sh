@@ -30,7 +30,11 @@ openocd -f "$OPENOCD_CFG" -f "$TARGET_CFG" \
   -c "reset_config srst_only srst_nogate" \
   -c "transport select swd" \
   -c "adapter speed 1000" \
-  -c "program macropad-firmware.elf verify reset exit"
+  -c "init" \
+  -c "reset halt" \
+  -c "program macropad-firmware.elf verify" \
+  -c "reset run" \
+  -c "exit"
   
 if [[ $? -eq 0 ]]; then
   echo "Flash successful."
